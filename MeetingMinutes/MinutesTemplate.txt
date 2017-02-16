@@ -1,22 +1,24 @@
-Meeting Minutes for _______________:
+Meeting Minutes for Feb 16,2017:
 
 Meeting Attendance:
-  *
-  *
-  *
+  *Saleem
+  *Likhith
+  *Wenqian
+  *Sriniketh
 
 Tasks completed since last meeting:
-  *
+  *Sorta got the push pull task down
   *
 
 Tasks started, but not completed, since last meeting:
-  *
+  *Push Pull Task
   *
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
-  *
+  *All team members be aware of the project requirements
+  *Come prepared with initial ideas for the meeting
 
 Schedule for the next week's set of pair programming meetings:
-  *
-  *
+  *Friday & Saturday
+  *Friday: 7-9
+  *Saturday: TBD
