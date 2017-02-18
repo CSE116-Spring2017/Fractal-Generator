@@ -20,4 +20,9 @@ public class JuliaSetTest {
 		assertEquals(1,js.escapeTime(1.6933593749999853, 0.9765625));
 	}
 
+	
+	
+	
+	
+	
 }
