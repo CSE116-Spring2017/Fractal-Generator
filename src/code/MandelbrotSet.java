@@ -47,6 +47,15 @@ public class MandelbrotSet {
 		}
 		return yy;
 	}
+
+	public double xCoordinate(int x, int y) {
+		return _x[x][y];
+	}
+
+	public double yCoordinate(int x, int y) {
+		return _y[x][y];
+	}
+
 	
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
