@@ -15,16 +15,16 @@ public class MandelbrotSet {
 	public static void main(String[] args) {
 		MandelbrotSet m = new MandelbrotSet();
 		double [][] p = m.setCoordinateX();
-		System.out.println(p[1][2]);
+		System.out.println(p[7][0]);
 	}
 	
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
 		double dx = (2.15+0.6)/512;
+		double x = -2.15;
 		for(int row = 0; row < xx.length; row++) {
-			double x = -2.15;
+			x = x + dx;
 			for(int col = 0; col < xx[row].length; col++) {
-				x = x + dx;
 				xx[row][col] = x;
 			}
 		}
@@ -33,10 +33,10 @@ public class MandelbrotSet {
 	public double[][] setCoordinateY() {
 		double[][] yy = new double[512][512];
 		double dy = (1.3+1.3)/512;
-		double y = -1.3;
 		for(int row = 0; row < yy.length; row++) {
-			y = y + dy;
+			double y = -1.3;
 			for(int col = 0; col < yy[row].length; col++) {
+				y = y + dy;
 				yy[row][col] = y;
 			}
 		}
