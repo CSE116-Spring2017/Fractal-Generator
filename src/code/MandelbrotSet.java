@@ -2,12 +2,11 @@ package code;
 
 public class MandelbrotSet {
 
-	private double[][] _coordinatesx;
-	private double[][] _coordinatesy;
+	private double[][] _coordinates;
 	private int[][] _finalFractal;
 
 	public MandelbrotSet() {
-		_coordinatesx = new double[512][512];
+		_coordinates = new double[512][512];
 		_finalFractal = new int[512][512];
 	}
 
