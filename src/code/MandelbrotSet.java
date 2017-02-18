@@ -16,7 +16,9 @@ public class MandelbrotSet {
 		MandelbrotSet m = new MandelbrotSet();
 		double [][] x = m.setCoordinateX();
 		double [][] y = m.setCoordinateY();
-		System.out.println(x[1][2]+","+y[7][0]);
+		int [][] f = m.fractals();
+		System.out.println(x[1][1]+","+y[1][1]);
+		System.out.println("escape time: "+f[489][450]);
 	}
 	
 	public double[][] setCoordinateX() {
@@ -44,7 +46,14 @@ public class MandelbrotSet {
 		return yy;
 	}
 	
-
+	public double xCoordinate(int x, int y) {
+		return _x[x][y];
+	}
+	public double yCoordinate(int x, int y) {
+		return _y[x][y];
+	}
+	
+	
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
@@ -62,7 +71,15 @@ public class MandelbrotSet {
 		return passes;
 	}
 	
-	
+	public int[][] fractals() {
+		 int[][] result = new int[512][512];
+		 for(int row = 0; row < result.length; row++) {
+			 for(int col = 0; col < result[row].length; col++) {
+				 result[row][col] = escapeTime(xCoordinate(row,col),yCoordinate(row,col));
+			 }
+		 } 
+		 return result;
+	}
 
 	public void coordinate(double x, double y) {
 
