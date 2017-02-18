@@ -57,6 +57,7 @@ public class MandelbrotSet {
 	}
 
 	
+	
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
