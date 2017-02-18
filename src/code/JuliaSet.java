@@ -19,7 +19,7 @@ public class JuliaSet {
 		int [][] f = m.fractals();
 		System.out.println(x[0][0]+","+y[0][0]);
 		System.out.println("escape time: "+f[0][0]);
-		System.out.println(m.escapeTime(-1.7, -1.0));
+		System.out.println(m.escapeTime(1.6933593749999853, 0.9765625));
 	}
 
 	public int escapeTime(double x, double y) {
@@ -31,6 +31,7 @@ public class JuliaSet {
 		distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		while (distance <= 2.0 && passes < 255) {
 			update(xCalc, yCalc);
+			
 			passes = passes + 1;
 			distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		}
@@ -72,10 +73,8 @@ public class JuliaSet {
 	}
 
 	public void update(double x, double y) {
-		if (x >= -1.7 && x <= 1.7 && x >= -1.0 && x <= 1.0) {
 			double x1 = ((x * x) - (y * y)) + (-0.72689);
 			double y1 = (2 * x * y) + 0.188887;
-		}
 	}
 
 	public int[][] fractals() {
