@@ -30,8 +30,9 @@ public class JuliaSet {
 
 		distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		while (distance <= 2.0 && passes < 255) {
-			update(xCalc, yCalc);
-			
+			double xtemp = xCalc;
+			xCalc = ((x * x) - (y * y)) + (-0.72689);
+			yCalc = (2 * x * y) + 0.188887;
 			passes = passes + 1;
 			distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		}
@@ -71,12 +72,7 @@ public class JuliaSet {
 	public double yCoordinate(int x, int y) {
 		return _y[x][y];
 	}
-
-	public void update(double x, double y) {
-			double x1 = ((x * x) - (y * y)) + (-0.72689);
-			double y1 = (2 * x * y) + 0.188887;
-	}
-
+	
 	public int[][] fractals() {
 		 int[][] result = new int[512][512];
 		 for(int row = 0; row < result.length; row=row+1) {
