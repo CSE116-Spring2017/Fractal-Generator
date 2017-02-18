@@ -1,0 +1,29 @@
+Meeting Minutes for Feb 18,2017:
+
+Meeting Attendance:
+  
+  *Likhith
+  *Wenqian
+  *Sriniketh
+
+Tasks completed since last meeting:
+  *understand full detials of phase 1
+  *get started on our methods
+
+Tasks started, but not completed, since last meeting:
+  *Phase 1
+  *Test Cases
+  *The code is almost done
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *Manderbolt-Wenqian		(completed)
+  *Julia- Sriniketh 		(completed)	
+  *Burning Ship-Likhith		(in progress)
+  *4th fractal- Saleem 		(awating 4th fractal)
+  
+ 
+
+Schedule for the next week's set of pair programming meetings:
+*Monday 7-8:30/9pm
+*Friday 7-9pm
+
