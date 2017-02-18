@@ -20,7 +20,6 @@ public class MandelbrotSet {
 		
 		System.out.println(m.escapeTime(0.5946289062500001, 1.2949218750000122));
 		
-		
 	}
 	
 	public double[][] setCoordinateX() {
@@ -48,15 +47,6 @@ public class MandelbrotSet {
 		return yy;
 	}
 
-	public double xCoordinate(int x, int y) {
-		return _x[x][y];
-	}
-
-	public double yCoordinate(int x, int y) {
-		return _y[x][y];
-	}
-
-	
 	
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
