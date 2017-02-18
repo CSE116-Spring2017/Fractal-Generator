@@ -14,8 +14,9 @@ public class MandelbrotSet {
 	}
 	public static void main(String[] args) {
 		MandelbrotSet m = new MandelbrotSet();
-		double [][] p = m.setCoordinateX();
-		System.out.println(p[7][0]);
+		double [][] x = m.setCoordinateX();
+		double [][] y = m.setCoordinateY();
+		System.out.println(x[1][2]+","+y[7][0]);
 	}
 	
 	public double[][] setCoordinateX() {
@@ -23,10 +24,10 @@ public class MandelbrotSet {
 		double dx = (2.15+0.6)/512;
 		double x = -2.15;
 		for(int row = 0; row < xx.length; row++) {
-			x = x + dx;
 			for(int col = 0; col < xx[row].length; col++) {
 				xx[row][col] = x;
 			}
+			x = x + dx;
 		}
 		return xx;
 	}
@@ -36,8 +37,8 @@ public class MandelbrotSet {
 		for(int row = 0; row < yy.length; row++) {
 			double y = -1.3;
 			for(int col = 0; col < yy[row].length; col++) {
-				y = y + dy;
 				yy[row][col] = y;
+				y = y + dy;
 			}
 		}
 		return yy;
