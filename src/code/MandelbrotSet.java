@@ -7,11 +7,8 @@ public class MandelbrotSet {
 	private int[][] _finalFractal;
 
 	public MandelbrotSet() {
-		_x = new double[512][512];
-		_y = new double[512][512];
 		_x = setCoordinateX();
 		_y = setCoordinateY();
-		_finalFractal = new int[512][512];
 		_finalFractal = fractals();
 		
 	}
@@ -20,9 +17,10 @@ public class MandelbrotSet {
 		double [][] x = m.setCoordinateX();
 		double [][] y = m.setCoordinateY();
 		int [][] f = m.fractals();
-		System.out.println(x[0][0]+","+y[0][0]);
-		System.out.println("escape time: "+f[0][0]);
-		System.out.println(m.escapeTime(-2.15, -1.3));
+		
+		System.out.println(m.escapeTime(0.5946289062500001, 1.2949218750000122));
+		
+		
 	}
 	
 	public double[][] setCoordinateX() {
@@ -50,25 +48,17 @@ public class MandelbrotSet {
 		return yy;
 	}
 	
-	public double xCoordinate(int x, int y) {
-		return _x[x][y];
-	}
-	public double yCoordinate(int x, int y) {
-		return _y[x][y];
-	}
-	
-	
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
-		
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 		
 		while(dist <= 2 && passes<255) {
+			double xtemp = xCalc;
 			xCalc = (xCalc*xCalc) - (yCalc*yCalc) + currentx;
-			yCalc = 2 * xCalc * yCalc + currenty;
-			passes = passes+1;
+			yCalc = 2 * xtemp * yCalc + currenty;
+			passes = passes + 1;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		}
 		
