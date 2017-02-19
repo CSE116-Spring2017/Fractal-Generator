@@ -86,7 +86,26 @@ public class BurningShip {
 		 return result;
 	}
 	
-	
+	public boolean test()
+	{ 
+		int[][] result=fractals();
+		
+		for(int row = 0; row < result.length; row=row+1) {
+			 for(int col = 0; col < result[row].length; col=col+1) {
+				 result[row][col] = escapeTime(_x[row][col],_y[row][col]);
+				 
+				 if((result[row][col]==1)||(result[row][col]==0))
+				 { 
+					 return false;	
+				 }
+				 
+			 }
+		 } 
+		
+		
+		return true;
+		
+	}
 		
 	
 
