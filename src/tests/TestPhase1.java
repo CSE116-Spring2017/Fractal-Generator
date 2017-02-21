@@ -7,6 +7,7 @@ import org.junit.Test;
 import code.BurningShip;
 import code.JuliaSet;
 import code.MandelbrotSet;
+import code.MultibrotSet;
 
 public class TestPhase1 {
 
@@ -147,14 +148,44 @@ public class TestPhase1 {
 	// END OF JULIA SET//
 
 	@Test
+	public void MultibrotSetRowToXCoordinateFor() {
+		MultibrotSet mb = new MultibrotSet();
+		double[][] x = mb.setCoordinateX();
+		assertEquals(-1.0, x[0][0], 0.01);
+	}
+
+	@Test
+	public void MultibrotSetColToYCoordinate() {
+		MultibrotSet mb = new MultibrotSet();
+		double[][] y = mb.setCoordinateY();
+		assertEquals(-1.3, y[0][0], 0.01);
+
+	}
+
+	@Test
+	public void MultibrotNeverExceedEscDis() {
+		MultibrotSet mb = new MultibrotSet();
+		assertEquals(255, mb.escapeTime(0.5859375, 0.24375000000000108));
+	}
+
+	@Test
+	public void MultibrotSetSingleLoop() {
+		MultibrotSet mb = new MultibrotSet();
+		assertEquals(1, mb.escapeTime(0.9921875, 1.05625));
+	}
+
+	@Test
 	public void MultibrotFractalSize() {
 
-		MandelbrotSet m = new MandelbrotSet();
-		int[][] result = m.fractals();
+		MultibrotSet mb = new MultibrotSet();
+		int[][] result = mb.fractals();
 
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 
 	}
 
+	
+// END OF MULTIBROT //
+	
 }

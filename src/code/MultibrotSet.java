@@ -12,15 +12,6 @@ public class MultibrotSet {
 		_finalFractal = fractals();
 		
 	}
-	public static void main(String[] args) {
-		MultibrotSet m = new MultibrotSet();
-		double [][] x = m.setCoordinateX();
-		double [][] y = m.setCoordinateY();
-		int [][] f = m.fractals();
-		
-		System.out.println(m.escapeTime(0.9921875, 1.05625));
-		
-	}
 	
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
