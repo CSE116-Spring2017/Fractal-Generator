@@ -13,16 +13,6 @@ public class BurningShip {
 		_finalFractal= fractals();
 	}
 	
-	public static void main(String[] args) {
-		BurningShip b = new BurningShip();
-		double [][] x = b.setCoordinateX();
-		double [][] y = b.setCoordinateY();
-		int [][] f = b.fractals();
-		System.out.println(x[0][0]+","+y[0][0]);
-		System.out.println("escape time: "+f[511][511]);
-		System.out.println(b.escapeTime(-1.7443359374999874, -0.017451171875000338));
-	}
-
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
 		double dx = (.1)/512;
@@ -86,26 +76,7 @@ public class BurningShip {
 		 return result;
 	}
 	
-	public boolean test()
-	{ 
-		int[][] result=fractals();
-		
-		for(int row = 0; row < result.length; row=row+1) {
-			 for(int col = 0; col < result[row].length; col=col+1) {
-				 result[row][col] = escapeTime(_x[row][col],_y[row][col]);
-				 
-				 if((result[row][col]==1)||(result[row][col]==0))
-				 { 
-					 return false;	
-				 }
-				 
-			 }
-		 } 
-		
-		
-		return true;
-		
-	}
+	
 		
 	
 
