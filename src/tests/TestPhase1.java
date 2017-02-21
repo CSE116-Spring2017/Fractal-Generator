@@ -10,7 +10,7 @@ import code.BurningShip;
 import code.JuliaSet;
 import code.MandelbrotSet;
 
-public class testphase1 {
+public class TestPhase1 {
 	@Test
 	public void MandelbrotSetTest1() {
 		MandelbrotSet m = new MandelbrotSet();
@@ -48,16 +48,7 @@ public class testphase1 {
 
 	}
 
-	@Test
-	public void BurningShipFractalSize() {
-		BurningShip ship = new BurningShip();
-
-		int[][] result = ship.fractals();
-
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
-
-	}
+	
 
 	@Test
 	public void neverExceedEscapeDistance() {
@@ -82,6 +73,42 @@ public class testphase1 {
 		
 		
 	}
+	@Test
+	public void MandelbrotFractalSize()
+	{ 
+		
+		MandelbrotSet m = new MandelbrotSet();
+		int[][] result = m.fractals();
 
+		assertEquals(512, result.length);
+		assertEquals(512, result[0].length);
+		
+		
+	}
+	
+	@Test
+	public void BurningShipFractalSize() {
+		BurningShip ship = new BurningShip();
+
+		int[][] result = ship.fractals();
+
+		assertEquals(512, result.length);
+		assertEquals(512, result[0].length);
+
+	}
+	
+	@Test
+	public void MultibrotFractalSize()
+	{ 
+		
+		MandelbrotSet m = new MandelbrotSet();
+		int[][] result = m.fractals();
+
+		assertEquals(512, result.length);
+		assertEquals(512, result[0].length);
+		
+		
+	}
+	
 
 }
