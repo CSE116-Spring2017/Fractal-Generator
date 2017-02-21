@@ -2,8 +2,6 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 import org.junit.Test;
 
 import code.BurningShip;
@@ -11,11 +9,41 @@ import code.JuliaSet;
 import code.MandelbrotSet;
 
 public class TestPhase1 {
+
 	@Test
-	public void MandelbrotSetTest1() {
+	public void mandelbroteRowToXCoordinateFor() {
+		MandelbrotSet m = new MandelbrotSet();
+		double[][] x = m.setCoordinateX();
+		assertEquals(-2.15, x[0][0], 0.01);
+	}
+
+	@Test
+	public void mandelbroteColToYCoordinate() {
+		MandelbrotSet m = new MandelbrotSet();
+		double[][] y = m.setCoordinateY();
+		assertEquals(-1.3, y[0][0], 0.01);
+
+	}
+
+	@Test
+	public void mandelbroteNeverExceedEscDis() {
 		MandelbrotSet m = new MandelbrotSet();
 		assertEquals(255, m.escapeTime(0.3207031250000001, -0.07109374999999386));
+
+	}
+
+	@Test
+	public void mandelbroteSingleLoop() {
+		MandelbrotSet m = new MandelbrotSet();
 		assertEquals(1, m.escapeTime(0.5946289062500001, 1.2949218750000122));
+	}
+
+	@Test
+	public void MandelbrotFractalSize() {
+		MandelbrotSet m = new MandelbrotSet();
+		int[][] result = m.fractals();
+		assertEquals(512, result.length);
+		assertEquals(512, result[0].length);
 	}
 
 	@Test
@@ -45,10 +73,7 @@ public class TestPhase1 {
 
 			}
 		}
-
 	}
-
-	
 
 	@Test
 	public void neverExceedEscapeDistance() {
@@ -61,31 +86,18 @@ public class TestPhase1 {
 		JuliaSet js = new JuliaSet();
 		assertEquals(1, js.escapeTime(1.6933593749999853, 0.9765625));
 	}
+
 	@Test
-	public void JuliaSetFractalSize()
-	{ 
+	public void JuliaSetFractalSize() {
 		JuliaSet js = new JuliaSet();
-		
+
 		int[][] result = js.fractals();
 
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
-		
-		
-	}
-	@Test
-	public void MandelbrotFractalSize()
-	{ 
-		
-		MandelbrotSet m = new MandelbrotSet();
-		int[][] result = m.fractals();
 
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
-		
-		
 	}
-	
+
 	@Test
 	public void BurningShipFractalSize() {
 		BurningShip ship = new BurningShip();
@@ -96,19 +108,16 @@ public class TestPhase1 {
 		assertEquals(512, result[0].length);
 
 	}
-	
+
 	@Test
-	public void MultibrotFractalSize()
-	{ 
-		
+	public void MultibrotFractalSize() {
+
 		MandelbrotSet m = new MandelbrotSet();
 		int[][] result = m.fractals();
 
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
-		
-		
+
 	}
-	
 
 }
