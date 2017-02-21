@@ -70,7 +70,7 @@ public class TestPhase1 {
 
 				assertNotEquals(1, result[row][col]);
 				assertNotEquals(0, result[row][col]);
-
+ 
 			}
 		}
 	}
