@@ -23,6 +23,8 @@ public class testphase1 {
 	@Test
 	public void test(){ 
 		
+		//Okay
+		
 	}
 	
 	
