@@ -2,6 +2,8 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.junit.Test;
 
 import code.BurningShip;
@@ -23,6 +25,7 @@ public class testphase1 {
 	@Test
 	public void test(){ 
 		
+		System.out.println("Lit");
 		//Okay
 		
 	}
