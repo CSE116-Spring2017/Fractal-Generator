@@ -11,16 +11,6 @@ public class JuliaSet {
 		_y = setCoordinateY();
 		_juliaFractal = fractals();
 	}
-	
-	public static void main(String[] args) {
-		JuliaSet m = new JuliaSet();
-		double [][] x = m.setCoordinateX();
-		double [][] y = m.setCoordinateY();
-		int [][] f = m.fractals();
-		System.out.println(x[0][0]+","+y[0][0]);
-		System.out.println("escape time: "+f[0][0]);
-		System.out.println(m.escapeTime(1.6933593749999853, 0.9765625));
-	}
 
 	public int escapeTime(double x, double y) {
 		double xCalc = x;
@@ -30,7 +20,6 @@ public class JuliaSet {
 
 		distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		while (distance <= 2.0 && passes < 255) {
-			double xtemp = xCalc;
 			xCalc = ((x * x) - (y * y)) + (-0.72689);
 			yCalc = (2 * x * y) + 0.188887;
 			passes = passes + 1;
@@ -72,15 +61,15 @@ public class JuliaSet {
 	public double yCoordinate(int x, int y) {
 		return _y[x][y];
 	}
-	
+
 	public int[][] fractals() {
-		 int[][] result = new int[512][512];
-		 for(int row = 0; row < result.length; row=row+1) {
-			 for(int col = 0; col < result[row].length; col=col+1) {
-				 result[row][col] = escapeTime(_x[row][col],_y[row][col]);
-			 }
-		 } 
-		 return result;
+		int[][] result = new int[512][512];
+		for (int row = 0; row < result.length; row = row + 1) {
+			for (int col = 0; col < result[row].length; col = col + 1) {
+				result[row][col] = escapeTime(_x[row][col], _y[row][col]);
+			}
+		}
+		return result;
 	}
 
 }
