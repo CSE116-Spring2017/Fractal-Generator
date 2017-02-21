@@ -17,9 +17,12 @@ public class testphase1 {
 	@Test
 	public void BurningShipTest(){ 
 		BurningShip ship=new BurningShip();
-		
 		assertEquals(255,ship.escapeTime(-1.7443359374999874, -0.017451171875000338));
 		assertEquals(true,ship.test());
+	}
+	@Test
+	public void test(){ 
+		
 	}
 	
 	
