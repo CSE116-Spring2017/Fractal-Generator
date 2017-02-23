@@ -15,8 +15,8 @@ public class MultibrotSet {
 	
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
-		double dx = (1+1)/512;
-		double x = -1;
+		double dx = (1.0+1.0)/512;
+		double x = -1.0;
 		for(int row = 0; row < xx.length; row++) {
 			for(int col = 0; col < xx[row].length; col++) {
 				xx[row][col] = x;

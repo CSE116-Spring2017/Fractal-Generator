@@ -12,10 +12,11 @@ import code.MultibrotSet;
 public class TestPhase1 {
 
 	@Test
-	public void MandelbroteRowToXCoordinateFor() {
+	public void MandelbroteRowToXCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
 		double[][] x = m.setCoordinateX();
 		assertEquals(-2.15, x[0][0], 0.01);
+		assertEquals(0.6, x[511][0],0.01);
 	}
 
 	@Test
@@ -23,6 +24,7 @@ public class TestPhase1 {
 		MandelbrotSet m = new MandelbrotSet();
 		double[][] y = m.setCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.01);
+		assertEquals(1.3,y[0][511],0.01);
 
 	}
 
@@ -50,10 +52,11 @@ public class TestPhase1 {
 	// END OF MANDELBROT TEST//
 
 	@Test
-	public void BurningShipColToXCoordinateFor() {
+	public void BurningShipColToXCoordinate() {
 		BurningShip ship = new BurningShip();
 		double[][] x = ship.setCoordinateX();
 		assertEquals(-1.8, x[0][0], 0.01);
+		assertEquals(-1.7, x[511][0],0.01);
 	}
 
 	@Test
@@ -62,6 +65,7 @@ public class TestPhase1 {
 		BurningShip ship = new BurningShip();
 		double[][] y = ship.setCoordinateY();
 		assertEquals(-0.08, y[0][0], 0.01);
+		assertEquals(0.025, y[0][511],0.01);
 
 	}
 
@@ -74,22 +78,11 @@ public class TestPhase1 {
 	@Test
 	public void BurningShipEscapeTime() {
 		BurningShip ship = new BurningShip();
-
 		int[][] result = ship.fractals();
-
-		double[][] _x;
-		double[][] _y;
-
-		_x = ship.setCoordinateX();
-		_y = ship.setCoordinateY();
-
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = ship.escapeTime(_x[row][col], _y[row][col]);
-
 				assertNotEquals(1, result[row][col]);
 				assertNotEquals(0, result[row][col]);
-
 			}
 		}
 	}
@@ -108,10 +101,11 @@ public class TestPhase1 {
 	// END OF BURNING SHIP ///
 
 	@Test
-	public void JuliaSetRowToXCoordinateFor() {
+	public void JuliaSetRowToXCoordinate() {
 		JuliaSet js = new JuliaSet();
 		double[][] x = js.setCoordinateX();
 		assertEquals(-1.7, x[0][0], 0.01);
+		assertEquals(1.7,x[511][0],0.01);
 	}
 
 	@Test
@@ -119,6 +113,7 @@ public class TestPhase1 {
 		JuliaSet js = new JuliaSet();
 		double[][] y = js.setCoordinateY();
 		assertEquals(-1.0, y[0][0], 0.01);
+		assertEquals(1.0, y[0][511], 0.01);
 
 	}
 
@@ -137,9 +132,7 @@ public class TestPhase1 {
 	@Test
 	public void JuliaSetFractalSize() {
 		JuliaSet js = new JuliaSet();
-
 		int[][] result = js.fractals();
-
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 
@@ -148,10 +141,11 @@ public class TestPhase1 {
 	// END OF JULIA SET//
 
 	@Test
-	public void MultibrotSetRowToXCoordinateFor() {
+	public void MultibrotSetRowToXCoordinate() {
 		MultibrotSet mb = new MultibrotSet();
 		double[][] x = mb.setCoordinateX();
 		assertEquals(-1.0, x[0][0], 0.01);
+		assertEquals(1.0, x[511][0], 0.01);
 	}
 
 	@Test
@@ -159,6 +153,7 @@ public class TestPhase1 {
 		MultibrotSet mb = new MultibrotSet();
 		double[][] y = mb.setCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.01);
+		assertEquals(1.3, y[0][511], 0.01);
 
 	}
 
