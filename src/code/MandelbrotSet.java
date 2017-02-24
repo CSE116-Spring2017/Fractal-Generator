@@ -80,7 +80,7 @@ public class MandelbrotSet {
        * While dist ≤ 2 and passes < 255 do
        * Update xCalc and yCalc equal using the update function defined for the fractal being generated
        * Update by using
-       * x' = x² - y² + current point's x-coordinate
+       * x' = x*x - y*y + current point's x-coordinate
 	   * y' = 2 * x * y + current point's y-coordinate
        * Increase passes by 1
        * Set dist distance from the point (xCalc, yCalc) to (0,0) using the Pythagorean theorem
