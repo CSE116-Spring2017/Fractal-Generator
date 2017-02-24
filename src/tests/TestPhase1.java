@@ -16,7 +16,7 @@ public class TestPhase1 {
 		MandelbrotSet m = new MandelbrotSet();
 		double[][] x = m.setCoordinateX();
 		assertEquals(-2.15, x[0][0], 0.01);
-		assertEquals(0.6, x[511][0],0.01);
+		assertEquals(0.6, x[511][0],0.01); 
 	}
 
 	@Test
