@@ -29,7 +29,7 @@ public class JuliaSet {
      * Set yCalc = {@code currenty}
      * Set dist = distance from the point (xCalc, yCalc) to (0,0) using the Pythagorean theorem
      * Set passes = 0
-     * While dist ≤ 2 and passes < 255 do
+     * While dist <= 2 and passes < 255 do
      * Update xCalc and yCalc equal using the update function defined for the fractal being generated
      * Update by using
      * x' = x*x - y*y +  -0.72689
@@ -86,7 +86,7 @@ public class JuliaSet {
 	 *  Set up all the y according to Cartesian plane
 	 * return a 2-d array of double with 512 rows and 512 columns
 	 * find the change of y
-	 * first double is the start of the x range which is -1.0
+	 * first double is the start of the y range which is -1.0
 	 * y + change of y when column increase by one
 	 * increase of row does not effect anything
 	 * @return 2-d array of double
