@@ -50,7 +50,7 @@ public class MandelbrotSet {
 	 *  Set up all the y according to Cartesian plane
 	 * return a 2-d array of double with 512 rows and 512 columns
 	 * find the change of y
-	 * first double is the start of the x range which is -1.3
+	 * first double is the start of the y range which is -1.3
 	 * y + change of y when column increase by one
 	 * increase of row does not effect anything
 	 * @return 2-d array of double
