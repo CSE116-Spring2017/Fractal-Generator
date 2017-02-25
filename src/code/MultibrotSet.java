@@ -2,7 +2,7 @@ package code;
 
 /**
  * Class which calculates the Escape-Time Algorithms for Multibrot Set with
- * X-Coordinate range from -2.15 to 0.6 Y-Coordinate range from -1.3 to 1.3
+ * X-Coordinate range from -1.0 to 1.0 Y-Coordinate range from -1.3 to 1.3
  *
  * @author Saleem Asfour
  */
@@ -18,8 +18,8 @@ public class MultibrotSet {
 	private int[][] _finalFractal;
 
 	/**
-	 * Create a Multibrot Set with array of x coordinate range from -2.15 to
-	 * 0.6 with 512 equally-spaced array of y coordinate range from -1.3 to 1.3
+	 * Create a Multibrot Set with array of x coordinate range from -1 to
+	 * 1 with 512 equally-spaced array of y coordinate range from -1.3 to 1.3
 	 * with 512 equally-spaced array of escape-time for each of 262144 pairs
 	 */
 
@@ -34,7 +34,7 @@ public class MultibrotSet {
 	 * Set up all the x according to Cartesian plane
 	 * return a 2-d array of double with 512 rows and 512 columns
 	 * find the change of x 
-	 * first double is the start of the x range which is -2.15
+	 * first double is the start of the x range which is -1
 	 * x + change of x when row increase by one
 	 * increase of column does not effect anything
 	 * @return 2-d array of double
@@ -57,7 +57,7 @@ public class MultibrotSet {
 	 *  Set up all the y according to Cartesian plane
 	 * return a 2-d array of double with 512 rows and 512 columns
 	 * find the change of y
-	 * first double is the start of the x range which is -1.3
+	 * first double is the start of the y range which is -1.3
 	 * y + change of y when column increase by one
 	 * increase of row does not effect anything
 	 * @return 2-d array of double
@@ -85,8 +85,8 @@ public class MultibrotSet {
      * While dist ≤ 2 and passes < 255 do
      * Update xCalc and yCalc equal using the update function defined for the fractal being generated
      * Update by using
-     * x' = x*x - y*y + current point's x-coordinate
-	 * y' = 2 * x * y + current point's y-coordinate
+     * x' = x³ - (3 * x * y²) + current point's x-coordinate
+	 * y' = (3 * x² * y) - y³ + current point's y-coordinate
      * Increase passes by 1
      * Set dist distance from the point (xCalc, yCalc) to (0,0) using the Pythagorean theorem
      * EndWhile
