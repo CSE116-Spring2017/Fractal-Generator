@@ -84,9 +84,9 @@ public class TestPhase1 {
 	public void BurningShipRowToXCoordinate() {
 		BurningShip ship = new BurningShip();
 		double[][] x = ship.setCoordinateX();
-		assertEquals(-1.8, x[0][0], 0.01);
-		assertEquals(-1.79980469,x[1][0],0.01);
-		assertEquals(-1.7, x[511][0],0.01);
+		assertEquals(-1.8, x[0][0], 0.0001);
+		assertEquals(-1.79980431,x[1][0],0.0001);
+		assertEquals(-1.7, x[511][0],0.0001);
 	}
 	
 	/**
@@ -98,9 +98,9 @@ public class TestPhase1 {
 	public void BurningShipColToYCoordinate() {
 		BurningShip ship = new BurningShip();
 		double[][] y = ship.setCoordinateY();
-		assertEquals(-0.08, y[0][0], 0.01);
-		assertEquals(-0.07979492,y[0][1],0.01);
-		assertEquals(0.025, y[0][511],0.01);
+		assertEquals(-0.08, y[0][0], 0.0001);
+		assertEquals(-0.07979452,y[0][1],0.0001);
+		assertEquals(0.025, y[0][511],0.0001);
 	}
 	
 	/**
@@ -157,9 +157,9 @@ public class TestPhase1 {
 	public void JuliaSetRowToXCoordinate() {
 		JuliaSet js = new JuliaSet();
 		double[][] x = js.setCoordinateX();
-		assertEquals(-1.7, x[0][0], 0.01);
-		assertEquals(-1.69335938,x[0][0], 0.01);
-		assertEquals(1.7,x[511][0],0.01);
+		assertEquals(-1.7, x[0][0], 0.0001);
+		assertEquals(-1.69334638,x[0][0], 0.0001);
+		assertEquals(1.7,x[511][0],0.0001);
 	}
 	
 	/**
@@ -172,9 +172,9 @@ public class TestPhase1 {
 	public void JuliaSetColToYCoordinate() {
 		JuliaSet js = new JuliaSet();
 		double[][] y = js.setCoordinateY();
-		assertEquals(-1.0, y[0][0], 0.01);
-		assertEquals(-0.99609375,y[0][1],0.01);
-		assertEquals(1.0, y[0][511], 0.01);
+		assertEquals(-1.0, y[0][0], 0.0001);
+		assertEquals(-0.99608611,y[0][1],0.0001);
+		assertEquals(1.0, y[0][511], 0.0001);
 
 	}
 	/**
@@ -223,9 +223,9 @@ public class TestPhase1 {
 	public void MultibrotSetRowToXCoordinate() {
 		MultibrotSet mb = new MultibrotSet();
 		double[][] x = mb.setCoordinateX();
-		assertEquals(-1.0, x[0][0], 0.01);
-		assertEquals(-0.99609375, x[1][0],0.01);
-		assertEquals(1.0, x[511][0], 0.01);
+		assertEquals(-1.0, x[0][0], 0.0001);
+		assertEquals(-0.99608611, x[1][0],0.0001);
+		assertEquals(1.0, x[511][0], 0.0001);
 	}
 	
 	/**
@@ -237,9 +237,9 @@ public class TestPhase1 {
 	public void MultibrotSetColToYCoordinate() {
 		MultibrotSet mb = new MultibrotSet();
 		double[][] y = mb.setCoordinateY();
-		assertEquals(-1.3, y[0][0], 0.01);
-		assertEquals(-1.29492188,y[0][1],0.01);
-		assertEquals(1.3, y[0][511], 0.01);
+		assertEquals(-1.3, y[0][0], 0.0001);
+		assertEquals(-1.29491194,y[0][1],0.0001);
+		assertEquals(1.3, y[0][511], 0.0001);
 	}
 	
 	/**
