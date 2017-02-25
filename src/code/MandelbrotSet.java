@@ -12,8 +12,6 @@ public class MandelbrotSet {
 	private double[][] _x;
 	/** Array of all the y-coordinate */
 	private double[][] _y;
-	/** Array of all the escape time for each of coordinate pairs */
-	private int[][] _finalFractal;
 
 	/**
 	 * Create a Mandelbrot Set with array of x coordinate range from -2.15 to
@@ -23,7 +21,6 @@ public class MandelbrotSet {
 	public MandelbrotSet() {
 		_x = setCoordinateX();
 		_y = setCoordinateY();
-		_finalFractal = fractals();
 
 	}
 
