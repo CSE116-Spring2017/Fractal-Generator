@@ -72,10 +72,10 @@ public class MultibrotSet {
 	/**
 	 * return int of escape-time by Set xCalc = {@code currentx} Set yCalc =
 	 * {@code currenty} Set dist = distance from the point (xCalc, yCalc) to
-	 * (0,0) using the Pythagorean theorem Set passes = 0 While dist ≤ 2 and
+	 * (0,0) using the Pythagorean theorem Set passes = 0 While dist <= 2 and
 	 * passes < 255 do Update xCalc and yCalc equal using the update function
-	 * defined for the fractal being generated Update by using x' = x³ - (3 * x
-	 * * y²) + current point's x-coordinate y' = (3 * x² * y) - y³ + current
+	 * defined for the fractal being generated Update by using x' = x*x*x - (3 * x
+	 * y*y) + current point's x-coordinate y' = (3 * x*x * y) - y*y*y + current
 	 * point's y-coordinate Increase passes by 1 Set dist distance from the
 	 * point (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
 	 *
