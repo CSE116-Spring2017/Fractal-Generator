@@ -24,6 +24,7 @@ public class JuliaSet {
 	}
 
 	/**
+	 * 
 	 * return int of escape-time by Set xCalc = {@code currentx} Set yCalc =
 	 * {@code currenty} Set dist = distance from the point (xCalc, yCalc) to
 	 * (0,0) using the Pythagorean theorem Set passes = 0 While dist <= 2 and
