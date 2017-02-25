@@ -4,10 +4,10 @@ public class Main {
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-System.out.println("Hello World!");
-System.out.println("Hello World V3");
-System.out.println("WORKWORKWORK");
-
+	  MandelbrotSet mb = new MandelbrotSet();
+	  JuliaSet js = new JuliaSet();
+	  BurningShip bs = new BurningShip();
+	  MultibrotSet mbs = new MultibrotSet();
   }
 
 }
