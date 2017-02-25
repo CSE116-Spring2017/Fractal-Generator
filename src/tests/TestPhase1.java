@@ -158,7 +158,7 @@ public class TestPhase1 {
 		JuliaSet js = new JuliaSet();
 		double[][] x = js.setCoordinateX();
 		assertEquals(-1.7, x[0][0], 0.0001);
-		assertEquals(-1.69334638,x[0][0], 0.0001);
+		assertEquals(-1.69334638,x[1][0], 0.0001);
 		assertEquals(1.7,x[511][0],0.0001);
 	}
 	
