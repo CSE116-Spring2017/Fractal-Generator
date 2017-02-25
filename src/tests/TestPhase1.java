@@ -18,16 +18,10 @@ public class TestPhase1 {
 	@Test
 	public void MandelbrotRowToXCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
-		double[][] x = m.setCoordinateX();
-		assertEquals(-2.15, x[0][0], 0.001);
-		assertEquals(-2.14462891,x[1][0],0.001);
-		assertEquals(0.59462891, x[511][0],0.0001); 
-		//x-coordinate for the last is not 0.6
-		//row is from 0 to 511
-		//the difference of x = (2.15+0.6)/512 
-		//will only be added 511 times 
-		//because the first number is 2.15 
-		//rather than 2.15 + the difference of x
+		double[][] x = m.setCoordinateX();;
+		assertEquals(-2.15, x[0][0], 0.0001);
+		assertEquals(-2.1446184,x[1][0],0.0001);
+		assertEquals(0.6, x[511][0],0.0001); 
 		
 	}
 	/**
@@ -39,9 +33,9 @@ public class TestPhase1 {
 	public void MandelbrotColToYCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
 		double[][] y = m.setCoordinateY();
-		assertEquals(-1.3, y[0][0], 0.001);
-		assertEquals(-1.29492188,y[0][1], 0.001);
-		assertEquals(1.29492188,y[0][511],0.001);
+		assertEquals(-1.3, y[0][0], 0.0001);
+		assertEquals(-1.29491194,y[0][1], 0.0001);
+		assertEquals(1.3,y[0][511],0.0001);
 
 	}
 	/**

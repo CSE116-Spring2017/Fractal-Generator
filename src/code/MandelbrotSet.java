@@ -38,7 +38,7 @@ public class MandelbrotSet {
 	 */
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
-		double dx = (2.15 + 0.6) / 512;
+		double dx = (2.15 + 0.6) / 511;
 		double x = -2.15;
 		for (int row = 0; row < xx.length; row++) {
 			for (int col = 0; col < xx[row].length; col++) {
@@ -61,7 +61,7 @@ public class MandelbrotSet {
 
 	public double[][] setCoordinateY() {
 		double[][] yy = new double[512][512];
-		double dy = (1.3 + 1.3) / 512;
+		double dy = (1.3 + 1.3) / 511;
 		for (int row = 0; row < yy.length; row++) {
 			double y = -1.3;
 			for (int col = 0; col < yy[row].length; col++) {
