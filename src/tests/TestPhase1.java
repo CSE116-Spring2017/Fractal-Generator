@@ -125,8 +125,8 @@ public class TestPhase1 {
 		int[][] result = ship.fractals();
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				assertNotEquals(1, result[row][col]);
-				assertNotEquals(0, result[row][col]);
+				assertFalse(1==result[row][col]);
+				assertFalse(0==result[row][col]);
 			}
 		}
 	}

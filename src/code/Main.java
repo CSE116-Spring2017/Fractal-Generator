@@ -8,6 +8,7 @@ public class Main {
 	  JuliaSet js = new JuliaSet();
 	  BurningShip bs = new BurningShip();
 	  MultibrotSet mbs = new MultibrotSet();
+	  
   }
 
 }
