@@ -74,7 +74,7 @@ public class MandelbrotSet {
        * Set yCalc = {@code currenty}
        * Set dist = distance from the point (xCalc, yCalc) to (0,0) using the Pythagorean theorem
        * Set passes = 0
-       * While dist ≤ 2 and passes < 255 do
+       * While dist <= 2 and passes < 255 do
        * Update xCalc and yCalc equal using the update function defined for the fractal being generated
        * Update by using
        * x' = x*x - y*y + current point's x-coordinate
