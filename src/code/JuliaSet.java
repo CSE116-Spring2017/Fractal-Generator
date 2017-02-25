@@ -104,14 +104,6 @@ public class JuliaSet {
 		}
 		return yy;
 	}
-
-	public double xCoordinate(int x, int y) {
-		return _x[x][y];
-	}
-
-	public double yCoordinate(int x, int y) {
-		return _y[x][y];
-	}
 	
 	/**
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
