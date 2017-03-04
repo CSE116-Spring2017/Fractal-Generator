@@ -7,7 +7,7 @@ package code;
  * @author Sriniketh Varma Dasarraju.
  */
 
-public class JuliaSet {
+public class JuliaSet implements Set{
 
 	private double[][] _x;
 	private double[][] _y;
@@ -41,7 +41,7 @@ public class JuliaSet {
 	 * @return int of escape-time for coordinate ({@code currentx} ,
 	 *         {@code currenty})
 	 */
-
+	@Override
 	public int escapeTime(double x, double y) {
 		double xCalc = x;
 		double yCalc = y;
@@ -66,7 +66,7 @@ public class JuliaSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
 		double dx = (3.4) / 511;
@@ -88,7 +88,7 @@ public class JuliaSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public double[][] setCoordinateY() {
 		double[][] yy = new double[512][512];
 		double dy = (2.0) / 511;
@@ -107,7 +107,7 @@ public class JuliaSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public int[][] fractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {

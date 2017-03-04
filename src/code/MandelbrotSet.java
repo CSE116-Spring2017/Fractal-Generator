@@ -7,7 +7,7 @@ package code;
  * @author Wenqian Zhao
  */
 
-public class MandelbrotSet {
+public class MandelbrotSet implements Set{
 	/** Array of all the x-coordinate */
 	private double[][] _x;
 	/** Array of all the y-coordinate */
@@ -33,6 +33,7 @@ public class MandelbrotSet {
 	 * increase of column does not effect anything
 	 * @return 2-d array of double
 	 */
+	@Override
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
 		double dx = (2.15 + 0.6) / 511;
@@ -55,7 +56,7 @@ public class MandelbrotSet {
 	 * increase of row does not effect anything
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public double[][] setCoordinateY() {
 		double[][] yy = new double[512][512];
 		double dy = (1.3 + 1.3) / 511;
@@ -87,7 +88,7 @@ public class MandelbrotSet {
 	   * @param double currenty  (y coordinate for which we will search)
 	   * @return int of escape-time for coordinate ({@code currentx} , {@code currenty})
 	   */
-
+	@Override
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
@@ -108,7 +109,7 @@ public class MandelbrotSet {
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public int[][] fractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
@@ -120,3 +121,4 @@ public class MandelbrotSet {
 	}
 
 }
+

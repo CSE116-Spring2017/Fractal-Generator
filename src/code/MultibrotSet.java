@@ -7,7 +7,7 @@ package code;
  * @author Saleem Asfour
  */
 
-public class MultibrotSet {
+public class MultibrotSet implements Set {
 
 	/** Array of all the x-coordinate */
 	private double[][] _x;
@@ -33,7 +33,7 @@ public class MultibrotSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public double[][] setCoordinateX() {
 		double[][] xx = new double[512][512];
 		double dx = (1.0 + 1.0) / 511;
@@ -55,7 +55,7 @@ public class MultibrotSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public double[][] setCoordinateY() {
 		double[][] yy = new double[512][512];
 		double dy = (1.3 + 1.3) / 511;
@@ -86,7 +86,7 @@ public class MultibrotSet {
 	 * @return int of escape-time for coordinate ({@code currentx} ,
 	 *         {@code currenty})
 	 */
-
+	@Override
 	public int escapeTime(double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
@@ -109,7 +109,7 @@ public class MultibrotSet {
 	 * 
 	 * @return 2-d array of double
 	 */
-
+	@Override
 	public int[][] fractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
