@@ -103,7 +103,6 @@ public class UI implements Runnable {
 		_menub.add(fractal);
 		_menub.add(color);
 		_menub.add(other);
-		_model.addObserver(this);
 		
 		_menub.setLayout(new GridLayout(1,4));
 		_frame.add(_menub);
