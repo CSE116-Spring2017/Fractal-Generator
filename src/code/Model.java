@@ -10,7 +10,7 @@ public class Model {
 	private int[][] _fractals;
 	private IndexColorModel _indexColorModel;
 	private Set _set;
-	private int _escapeDis;
+	private int _escapeDistance;
 	
 	public Model() {
 		
@@ -23,26 +23,17 @@ public class Model {
 		return _fractals;
 	}
 	
-	public void escapeDis(int escapeDistance){
-		_escapeDis = escapeDistance;
-		escapeTime(_set);
-		_ui.update();
-	}
-	
-	public void excapeTime(Set set){
-		_set = set;
-		_set.setEscapeDis(_escapeDis);
-		_fractals = _set.getFractals();
-		_ui.update();
-	}
-	
 	public void escapeTime(Set set) {
-		try{
+		_set = set;
+		_set.setEscapeDis(_escapeDistance);
 		_fractals = set.getFractals();
 		_ui.update();
-		}catch(NullPointerException npe){
-			
-		}
+	}
+	
+	public void escapeDis(int escapeDis){
+		_escapeDistance = escapeDis;
+		escapeTime(_set);
+		_ui.update();
 	}
 	
 	public IndexColorModel selectColor() {
