@@ -139,16 +139,17 @@ public class UI implements Runnable {
 	public void checkInput(String input) {
 		try {
 			int distance = Integer.parseInt(input);
-			if (distance > 0 && distance < 255) {
+			if (distance > 0) {
+				_model.escapeDis(distance);
 				System.out.println("recalculating");
 			} else {
-				JOptionPane.showMessageDialog(null, "The distance has to be between 0 and 255", "Distance Error",
+				JOptionPane.showMessageDialog(null, "The distance has to be greater than 0", "Distance Error",
 						JOptionPane.ERROR_MESSAGE);
 			}
 
 		} catch (NumberFormatException nfe) {
 			JOptionPane.showMessageDialog(null,
-					"The distance cannot be a string, please enter distance between 0 and 255", "Distance Error",
+					"The distance cannot be a string, please enter distance greater than 0", "Distance Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
@@ -159,7 +160,6 @@ public class UI implements Runnable {
 		_fractalPanel.setIndexColorModel(_model.selectColor());
 		_fractalPanel.updateImage(_model.escapeTime());
 		_frame.add(_fractalPanel);
-
 	}
 
 	public void update() {

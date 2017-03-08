@@ -6,6 +6,4 @@ public interface Set {
 	public int escapeTime(int escapeDis,double currentx,double currenty);
 	public int[][] getFractals();
 	public void setEscapeDis(int escapeDis);
-	
-
 }
