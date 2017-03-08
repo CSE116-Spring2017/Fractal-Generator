@@ -137,12 +137,19 @@ public class UI implements Runnable {
 	}
 
 	public void checkInput(String input) {
-		int distance = Integer.parseInt(input);
-		if(distance > 0 && distance <255 ){
-			System.out.println("recalculating");
-		}
-		else{
-			JOptionPane.showMessageDialog (null, "The distance has to be between 0 and 255", "Distance Error", JOptionPane.ERROR_MESSAGE);
+		try {
+			int distance = Integer.parseInt(input);
+			if (distance > 0 && distance < 255) {
+				System.out.println("recalculating");
+			} else {
+				JOptionPane.showMessageDialog(null, "The distance has to be between 0 and 255", "Distance Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+
+		} catch (NumberFormatException nfe) {
+			JOptionPane.showMessageDialog(null,
+					"The distance cannot be a string, please enter distance between 0 and 255", "Distance Error",
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
