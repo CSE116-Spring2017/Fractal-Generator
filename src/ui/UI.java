@@ -86,9 +86,23 @@ public class UI implements Runnable {
 		color.add(black);
 		color.add(ran);
 		
+		JMenu other = new JMenu("Other");
+		JMenuItem escapeDis = new JMenuItem("Escape Distance");
+		escapeDis.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+			
+		});
+		other.add(escapeDis);
+		
 		_menub.add(file);
 		_menub.add(fractal);
 		_menub.add(color);
+		_menub.add(other);
 		_model.addObserver(this);
 		
 		_menub.setLayout(new GridLayout(1,3));
