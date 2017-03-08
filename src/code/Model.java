@@ -14,7 +14,7 @@ public class Model {
 		
 	}
 	public void addObserver(UI ui) {
-		_ui = ui;
+		_ui = ui; 
 		
 	}
 	public int[][] escapeTime() {

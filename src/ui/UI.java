@@ -125,9 +125,9 @@ public class UI implements Runnable {
 	
 	public void newFractal() {
 		_frame.remove(_fractalPanel);
+		_fractalPanel = new FractalPanel();
+		_fractalPanel.setIndexColorModel(_model.selectColor());
 		_fractalPanel.updateImage(_model.escapeTime());
-		IndexColorModel i = ColorModelFactory.createRainbowColorModel(255);
-		_fractalPanel.setIndexColorModel(i);
 		_frame.add(_fractalPanel);
 		
 	}
