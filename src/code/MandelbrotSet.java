@@ -12,7 +12,7 @@ public class MandelbrotSet implements Set{
 	private double[][] _x;
 	/** Array of all the y-coordinate */
 	private double[][] _y;
-
+	private int _escapeDis;
 	/**
 	 * Create a Mandelbrot Set with array of x coordinate range from -2.15 to
 	 * 0.6 with 512 equally-spaced array of y coordinate range from -1.3 to 1.3
@@ -21,6 +21,7 @@ public class MandelbrotSet implements Set{
 	public MandelbrotSet() {
 		_x = setCoordinateX();
 		_y = setCoordinateY();
+		_escapeDis = 2;
 
 	}
 
@@ -89,13 +90,13 @@ public class MandelbrotSet implements Set{
 	   * @return int of escape-time for coordinate ({@code currentx} , {@code currenty})
 	   */
 	@Override
-	public int escapeTime(double currentx, double currenty) {
+	public int escapeTime(int escapeDis,double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 
-		while (dist <= 2 && passes < 255) {
+		while (dist <= escapeDis && passes < 255) {
 			double xtemp = xCalc;
 			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
 			yCalc = 2 * xtemp * yCalc + currenty;
@@ -105,16 +106,21 @@ public class MandelbrotSet implements Set{
 
 		return passes;
 	}
+	
+	@Override
+	public void setEscapeDis(int escapeDis) {
+		_escapeDis = escapeDis;
+	}
 	/**
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
 	 * @return 2-d array of double
 	 */
 	@Override
-	public int[][] fractals() {
+	public int[][] getFractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_escapeDis,_x[row][col], _y[row][col]);
 			}
 		}
 		return result;

@@ -45,7 +45,7 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipNeverExceedEscDis() {
 		BurningShip ship = new BurningShip();
-		assertEquals(255, ship.escapeTime(-1.7443359374999874, -0.017451171875000338));
+		assertEquals(255, ship.escapeTime(2,-1.7443359374999874, -0.017451171875000338));
 	}
 	
 	/**
@@ -55,13 +55,23 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipEscapeTime() {
 		BurningShip ship = new BurningShip();
-		int[][] result = ship.fractals();
+		int[][] result = ship.getFractals();
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
 				assertFalse(1== result[row][col]);
 				assertFalse(0==result[row][col]);
 			}
 		}
+	}
+	/**
+	 * Burning Ship Set 
+	 * test for escape time for the given coordinate (-1.6999999999999802, 0.0030136986301371603)
+	 * exceeds the escape distance 3 after a ten loop pass, so escape time == 10
+	 */
+	@Test
+	public void BurningShipTenLoop() {
+		BurningShip ship = new BurningShip();
+		assertEquals(10,ship.escapeTime(3,-1.6999999999999802, 0.0030136986301371603));
 	}
 	
 	/**
@@ -72,7 +82,7 @@ public class BurningShipTest {
 	public void BurningShipFractalSize() {
 		BurningShip ship = new BurningShip();
 
-		int[][] result = ship.fractals();
+		int[][] result = ship.getFractals();
 
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);

@@ -44,7 +44,7 @@ public class MultibrotSetTest {
 	@Test
 	public void MultibrotNeverExceedEscDis() {
 		MultibrotSet mb = new MultibrotSet();
-		assertEquals(255, mb.escapeTime(0.5859375, 0.24375000000000108));
+		assertEquals(255, mb.escapeTime(2,0.5859375, 0.24375000000000108));
 	}
 	
 	/**
@@ -55,7 +55,18 @@ public class MultibrotSetTest {
 	@Test
 	public void MultibrotSetSingleLoop() {
 		MultibrotSet mb = new MultibrotSet();
-		assertEquals(1, mb.escapeTime(0.9921875, 1.05625));
+		assertEquals(1, mb.escapeTime(2,0.9921875, 1.05625));
+	}
+	
+	/**
+	 * Multibrot Set 
+	 * test for escape time for the given coordinate (0.7025440313111545, -0.5520547945205528)
+	 * exceeds the escape distance 3 after a ten loop pass, so escape time == 10
+	 */
+	public void MultibrotTenLoop() {
+		MultibrotSet mb = new MultibrotSet();
+		assertEquals(10, mb.escapeTime(3,0.7025440313111545, -0.5520547945205528));
+	
 	}
 	
 	/**
@@ -65,7 +76,7 @@ public class MultibrotSetTest {
 	@Test
 	public void MultibrotFractalSize() {
 		MultibrotSet mb = new MultibrotSet();
-		int[][] result = mb.fractals();
+		int[][] result = mb.getFractals();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 

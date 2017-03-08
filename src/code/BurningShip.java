@@ -13,6 +13,7 @@ public class BurningShip implements Set{
 	private double[][] _x;
 	/** Array of all the y-coordinate */
 	private double[][] _y;
+	private int _escapeDis;
 
 	/**
 	 * Create a Burning Ship Set with array of x coordinate range from -1.8 to
@@ -24,6 +25,7 @@ public class BurningShip implements Set{
 
 		_x = setCoordinateX();
 		_y = setCoordinateY();
+		_escapeDis = 2;
 
 	}
 
@@ -89,14 +91,14 @@ public class BurningShip implements Set{
 	 *         {@code currenty})
 	 */
 	@Override
-	public int escapeTime(double currentx, double currenty) {
+	public int escapeTime(int escapeDis, double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
 
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 
-		while (dist <= 2 && passes < 255) {
+		while (dist <= escapeDis && passes < 255) {
 
 			double xtemp = xCalc;
 			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
@@ -107,6 +109,10 @@ public class BurningShip implements Set{
 
 		return passes;
 	}
+	@Override
+	public void setEscapeDis(int escapeDis){
+		_escapeDis = escapeDis;
+	}
 
 	/**
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
@@ -114,11 +120,11 @@ public class BurningShip implements Set{
 	 * @return 2-d array of double
 	 */
 	@Override
-	public int[][] fractals() {
+	public int[][] getFractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_escapeDis,_x[row][col], _y[row][col]);
 
 			}
 		}

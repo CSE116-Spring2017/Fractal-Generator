@@ -11,7 +11,7 @@ public class JuliaSet implements Set{
 
 	private double[][] _x;
 	private double[][] _y;
-
+	private int _escapeDis;
 	/**
 	 * Create a Mandelbrot Set with array of x coordinate range from -1.7 to
 	 * -1.7 with 512 equally-spaced array of y coordinate range from -1.0 to 1.0
@@ -21,6 +21,7 @@ public class JuliaSet implements Set{
 	public JuliaSet() {
 		_x = setCoordinateX();
 		_y = setCoordinateY();
+		_escapeDis = 2;
 	}
 
 	/**
@@ -42,16 +43,17 @@ public class JuliaSet implements Set{
 	 *         {@code currenty})
 	 */
 	@Override
-	public int escapeTime(double x, double y) {
+	public int escapeTime(int escapeDis,double x, double y) {
 		double xCalc = x;
 		double yCalc = y;
 		double distance = 0.0;
 		int passes = 0;
 
 		distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
-		while (distance <= 2.0 && passes < 255) {
-			xCalc = ((x * x) - (y * y)) + (-0.72689);
-			yCalc = (2 * x * y) + 0.188887;
+		while (distance <= escapeDis && passes < 255) {
+			double xtemp = xCalc;
+			xCalc = ((xCalc * xCalc) - (yCalc * yCalc)) + (-0.72689);
+			yCalc = (2 * xtemp * yCalc) + 0.188887;
 			passes = passes + 1;
 			distance = Math.sqrt(((xCalc) * (xCalc)) + ((yCalc) * (yCalc)));
 		}
@@ -101,6 +103,12 @@ public class JuliaSet implements Set{
 		}
 		return yy;
 	}
+	
+	@Override
+	public void setEscapeDis(int escapeDis) {
+		_escapeDis = escapeDis;
+		
+	}
 
 	/**
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
@@ -108,11 +116,11 @@ public class JuliaSet implements Set{
 	 * @return 2-d array of double
 	 */
 	@Override
-	public int[][] fractals() {
+	public int[][] getFractals() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_escapeDis,_x[row][col], _y[row][col]);
 			}
 		}
 		return result;
