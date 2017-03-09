@@ -91,9 +91,10 @@ public class UI implements Runnable {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String inputDistance = JOptionPane.showInputDialog("Enter Distance:");
-
-				System.out.println(inputDistance);
-				checkInput(inputDistance);
+				if (inputDistance == null) {
+				} else {
+					checkInput(inputDistance);
+				}
 			}
 
 		});
