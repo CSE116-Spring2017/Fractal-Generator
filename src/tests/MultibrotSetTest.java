@@ -60,6 +60,7 @@ public class MultibrotSetTest {
 	 * (0.7025440313111545, -0.5520547945205528) exceeds the escape distance 3
 	 * after a ten loop pass, so escape time == 10
 	 */
+	@Test
 	public void MultibrotTenLoop() {
 		MultibrotSet mb = new MultibrotSet();
 		assertEquals(10, mb.escapeTime(3, 0.7025440313111545, -0.5520547945205528));

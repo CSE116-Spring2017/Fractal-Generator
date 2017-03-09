@@ -1,23 +1,8 @@
-Meeting Minutes for Feb 17,2017:
+Run the escape distance and check if they are valid or not.
 
-Meeting Attendance:
-  
-  *Likhith
-  *Wenqian
-  *Sriniketh
 
-Tasks completed since last meeting:
-  *Push pull task down.
-  *Estabalished time to meet agian
-
-Tasks started, but not completed, since last meeting:
-  *Phase 1
-  *
-
-Tasks to be worked on (and by which team members) for the next meeting:
-  *Manderbolt-Wenqian
-  *Julia- Sriniketh
-  *Burning Ship-Likhith
-
-Schedule for the next week's set of pair programming meetings:
-  *Staruday at 4pm
+		(1) In the menu bar go to 'other' and select escape distance.
+		(2) Escape distance dialog box pops up.
+		(3) The user enters an integer value greater than 0.
+		(4) Should the user enter anything other than an integer the exception is caught and
+   			the user is notified with another warning message.
