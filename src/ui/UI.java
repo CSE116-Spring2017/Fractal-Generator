@@ -143,7 +143,6 @@ public class UI implements Runnable {
 			distance = Integer.parseInt(input);
 			if (distance > 0) {
 				_model.escapeDis(distance);
-				System.out.println("recalculating");
 			} else {
 				JOptionPane.showMessageDialog(null, "The distance has to be greater than 0.", "Distance Error",
 						JOptionPane.ERROR_MESSAGE);

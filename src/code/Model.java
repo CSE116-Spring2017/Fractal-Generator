@@ -13,7 +13,7 @@ public class Model {
 	private int _escapeDistance;
 
 	public Model() {
-
+		_escapeDistance = 2;
 	}
 
 	public void addObserver(UI ui) {
