@@ -76,10 +76,10 @@ public class MultibrotSet implements Set {
 	 * {@code currenty} Set dist = distance from the point (xCalc, yCalc) to
 	 * (0,0) using the Pythagorean theorem Set passes = 0 While dist <= 2 and
 	 * passes < 255 do Update xCalc and yCalc equal using the update function
-	 * defined for the fractal being generated Update by using x' = x*x*x - (3 * x
-	 * y*y) + current point's x-coordinate y' = (3 * x*x * y) - y*y*y + current
-	 * point's y-coordinate Increase passes by 1 Set dist distance from the
-	 * point (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
+	 * defined for the fractal being generated Update by using x' = x*x*x - (3 *
+	 * x y*y) + current point's x-coordinate y' = (3 * x*x * y) - y*y*y +
+	 * current point's y-coordinate Increase passes by 1 Set dist distance from
+	 * the point (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
 	 *
 	 * @param double
 	 *            currentx (x coordinate for which we will search)
@@ -89,7 +89,7 @@ public class MultibrotSet implements Set {
 	 *         {@code currenty})
 	 */
 	@Override
-	public int escapeTime(int escapeDis,double currentx, double currenty) {
+	public int escapeTime(int escapeDis, double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
@@ -105,8 +105,9 @@ public class MultibrotSet implements Set {
 
 		return passes;
 	}
+
 	@Override
-	public void setEscapeDis(int escapeDis){
+	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
 	}
 
@@ -120,7 +121,7 @@ public class MultibrotSet implements Set {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_escapeDis,_x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_escapeDis, _x[row][col], _y[row][col]);
 			}
 		}
 		return result;

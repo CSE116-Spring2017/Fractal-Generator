@@ -7,7 +7,7 @@ package code;
  * @author Likhith Doddi
  */
 
-public class BurningShip implements Set{
+public class BurningShip implements Set {
 
 	/** Array of all the x-coordinate */
 	private double[][] _x;
@@ -17,8 +17,9 @@ public class BurningShip implements Set{
 
 	/**
 	 * Create a Burning Ship Set with array of x coordinate range from -1.8 to
-	 * -1.7 with 512 equally-spaced array of y coordinate range from -0.08 to 0.025
-	 * with 512 equally-spaced array of escape-time for each of 262144 pairs
+	 * -1.7 with 512 equally-spaced array of y coordinate range from -0.08 to
+	 * 0.025 with 512 equally-spaced array of escape-time for each of 262144
+	 * pairs
 	 */
 
 	public BurningShip() {
@@ -79,9 +80,9 @@ public class BurningShip implements Set{
 	 * (0,0) using the Pythagorean theorem Set passes = 0 While dist <= 2 and
 	 * passes < 255 do Update xCalc and yCalc equal using the update function
 	 * defined for the fractal being generated Update by using x' = x*x - y*y +
-	 * current point's x-coordinate y' = absolute vale of|2 * x * y| + current point's
-	 * y-coordinate Increase passes by 1 Set dist distance from the point
-	 * (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
+	 * current point's x-coordinate y' = absolute vale of|2 * x * y| + current
+	 * point's y-coordinate Increase passes by 1 Set dist distance from the
+	 * point (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
 	 *
 	 * @param double
 	 *            currentx (x coordinate for which we will search)
@@ -109,8 +110,9 @@ public class BurningShip implements Set{
 
 		return passes;
 	}
+
 	@Override
-	public void setEscapeDis(int escapeDis){
+	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
 	}
 
@@ -124,7 +126,7 @@ public class BurningShip implements Set{
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_escapeDis,_x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_escapeDis, _x[row][col], _y[row][col]);
 
 			}
 		}

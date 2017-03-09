@@ -137,19 +137,24 @@ public class UI implements Runnable {
 	}
 
 	public void checkInput(String input) {
+		int distance;
 		try {
-			int distance = Integer.parseInt(input);
+			distance = Integer.parseInt(input);
 			if (distance > 0) {
 				_model.escapeDis(distance);
 				System.out.println("recalculating");
 			} else {
-				JOptionPane.showMessageDialog(null, "The distance has to be greater than 0", "Distance Error",
+				JOptionPane.showMessageDialog(null, "The distance has to be greater than 0.", "Distance Error",
 						JOptionPane.ERROR_MESSAGE);
 			}
 
 		} catch (NumberFormatException nfe) {
 			JOptionPane.showMessageDialog(null,
-					"The distance cannot be a string, please enter distance greater than 0", "Distance Error",
+					"The distance cannot be a string, please enter distance greater than 0.", "Distance Error",
+					JOptionPane.ERROR_MESSAGE);
+		} catch (NullPointerException npe) {
+			JOptionPane.showMessageDialog(null,
+					"Please select the fractal and the color if you don't want the program to crash!", "Distance Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
