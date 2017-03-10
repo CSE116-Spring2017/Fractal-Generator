@@ -1,5 +1,7 @@
 package code;
 
+import javax.swing.JOptionPane;
+
 /**
  * Class which calculates the Escape-Time Algorithms for Burning Ship Set with
  * X-Coordinate range from -1.8 to -1.7 Y-Coordinate range from -0.08 to 0.025
@@ -95,20 +97,27 @@ public class BurningShip implements Set {
 	public int escapeTime(int escapeDis, double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
-
-		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 
-		while (dist <= escapeDis && passes < 255) {
+		if (escapeDis == 1) {
+			JOptionPane.showMessageDialog(null,
+					"The distance for the Burning Ship Fractal has to be greater than 1, so the distance has been reset to 2.",
+					"Distance Error", JOptionPane.ERROR_MESSAGE);
+			_escapeDis = 2;
+		} else {
+			double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
-			double xtemp = xCalc;
-			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
-			yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
-			passes = passes + 1;
-			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+			while (dist <= escapeDis && passes < 255) {
+
+				double xtemp = xCalc;
+				xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
+				yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
+				passes = passes + 1;
+				dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+			}
 		}
-
 		return passes;
+
 	}
 
 	@Override
