@@ -32,8 +32,8 @@ public class UI implements Runnable {
 	public void run() {
 
 		_frame = new JFrame();
-		_menub = new JMenuBar();
 
+		_menub = new JMenuBar();
 		JMenu file = new JMenu("File");
 		JMenuItem quit = new JMenuItem("Quit");
 		quit.addActionListener(new ActionListener() {
@@ -53,10 +53,17 @@ public class UI implements Runnable {
 		burningShip.addActionListener(new EventHandler(_model, new BurningShip()));
 		JMenuItem multibrot = new JMenuItem("Multibrot Set");
 		multibrot.addActionListener(new EventHandler(_model, new MultibrotSet()));
+		
 		fractal.add(mandelbrot);
 		fractal.add(julia);
 		fractal.add(burningShip);
 		fractal.add(multibrot);
+		/**
+		 * Creates a JMenu on the Interface named "fractal"
+		 * Creates 4 JMenu Items with names "mandelbrot", "julia", "burningShip", and "multibrot".
+		 * It then gives all 4 JMenu Items their own actionListener.
+		 * It then adds the each JMenu Item to the JMenu itself which was created and named "fractal".
+		 **/
 
 		JMenu color = new JMenu("Color");
 		JMenuItem rainbow = new JMenuItem("Rainbow");
@@ -83,11 +90,23 @@ public class UI implements Runnable {
 		color.add(white);
 		color.add(black);
 		color.add(ran);
+		/**
+		 * Creates a JMenu on the Interface named "color"
+		 * Creates 8 JMenu Items with names "rainbow", "blue", "gray", "red", "green", "white", "black", and "multibrot".
+		 * It then gives all 8 JMenu Items their own actionListener.
+		 * It then adds the each JMenu Item to the JMenu itself which was created and named "color".
+		 **/
 
 		JMenu other = new JMenu("Other");
 		JMenuItem escapeDis = new JMenuItem("Escape Distance");
 		escapeDis.addActionListener(new ActionListener() {
 
+			/** 
+			 * Creates a JMenu on the Interface named "color"
+			 * Creates 1 JMenu Item with the name of "escapeDis"
+			 * It then adds an Action Listener to this Jmenu Item
+			 **/
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String inputDistance = JOptionPane.showInputDialog("Enter Distance:");
@@ -96,14 +115,23 @@ public class UI implements Runnable {
 					checkInput(inputDistance);
 				}
 			}
+			
 
 		});
 		other.add(escapeDis);
 
+		/**
+		 * Creates an Option to Enter a Distance that is desired by the user
+		 * Checks to see if its null, and if it is not, it goes inside a method to check what the user has input
+		 * Then it adds the the JMenu Item to the JMenu itself
+		 **/
+		
 		_menub.add(file);
 		_menub.add(fractal);
 		_menub.add(color);
 		_menub.add(other);
+		
+		
 
 		_menub.setLayout(new GridLayout(1, 4));
 		_frame.add(_menub);
@@ -111,6 +139,14 @@ public class UI implements Runnable {
 		_fractalPanel = new FractalPanel();
 		_frame.add(_fractalPanel);
 
+		/**
+		 * 
+		 * Adds all 4 JMenu's that were created to the JMenu Bar
+		 * Then its sets the JMenu layout to a Grid Layout with dimentions of 1 and 4.
+		 * Then the JMenu Bar is added to the frame.
+		 * 
+		 **/
+		
 		_hints = new JPanel();
 		_hints.setLayout(new GridLayout(16, 1));
 		_hint = new ArrayList<JLabel>();
