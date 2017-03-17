@@ -153,7 +153,7 @@ public class UI implements Runnable {
 					"The distance cannot be a string, please enter distance greater than 0.", "Distance Error",
 					JOptionPane.ERROR_MESSAGE);
 		} catch (NullPointerException npe) {
-			
+
 		}
 	}
 
