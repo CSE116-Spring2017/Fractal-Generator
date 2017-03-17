@@ -1,5 +1,16 @@
 package code;
 
+
+
+
+
+
+
+
+
+
+
+
 public interface Set {
 	public double[][] setCoordinateX();
 

@@ -13,3 +13,5 @@ Directions to run the program:
 6) You can continue to change the color and the type of fractal while maintaining the escape distance you entered
 
 7)To quit the program,choose File then Quit
+
+Have Fun :)
