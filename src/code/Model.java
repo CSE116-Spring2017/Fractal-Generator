@@ -34,6 +34,7 @@ public class Model {
 		_ui = ui;
 
 	}
+	
 	/**
 	 * Get the current escape time
 	 * 

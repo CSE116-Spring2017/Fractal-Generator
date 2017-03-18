@@ -17,4 +17,5 @@ public interface Set {
 	public int[][] getEscapeTime();
 
 	public void setEscapeDis(int escapeDis);
+	
 }

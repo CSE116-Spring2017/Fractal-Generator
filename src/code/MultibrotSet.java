@@ -20,7 +20,6 @@ public class MultibrotSet implements Set {
 	 * 512 equally-spaced array of y coordinate range from -1.3 to 1.3 with 512
 	 * equally-spaced array of escape-time for each of 262144 pairs
 	 */
-
 	public MultibrotSet() {
 		_x = setCoordinateX();
 		_y = setCoordinateY();

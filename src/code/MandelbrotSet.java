@@ -103,6 +103,7 @@ public class MandelbrotSet implements Set {
 
 		return passes;
 	}
+	
 	/**
 	 * Update the escape distance {@code _escapeDis} of the Mandelbrot Set by {@code escapeDis}
 	 */

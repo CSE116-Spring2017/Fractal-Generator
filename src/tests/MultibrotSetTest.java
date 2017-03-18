@@ -78,7 +78,6 @@ public class MultibrotSetTest {
 		int[][] result = mb.getEscapeTime();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
-
 	}
 
 }

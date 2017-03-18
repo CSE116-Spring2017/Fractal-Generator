@@ -40,7 +40,6 @@ public class BurningShipTest {
 	 * (-1.7443359374999874, -0.017451171875000338) never exceed escape
 	 * distance 2, so escape time == 255
 	 */
-
 	@Test
 	public void BurningShipNeverExceedEscDis() {
 		BurningShip ship = new BurningShip();

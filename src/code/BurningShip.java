@@ -21,7 +21,6 @@ public class BurningShip implements Set {
 	 * 0.025 with 512 equally-spaced array of escape-time for each of 262144
 	 * pairs
 	 */
-
 	public BurningShip() {
 
 		_x = setCoordinateX();

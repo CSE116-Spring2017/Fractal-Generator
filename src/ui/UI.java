@@ -33,8 +33,7 @@ public class UI implements Runnable {
 
 		_frame = new JFrame();
 
-		_menub = new JMenuBar();
-		
+		_menub = new JMenuBar();		
 		/**
 		 * Creates a JMenu named "File" Creates 1 JMenu
 		 * Items with names "Quit". Use it to exit

@@ -193,7 +193,6 @@ public class ColorModelFactory {
 	 * @return Color model that shows all of the different possible shades of
 	 *         green.
 	 */
-
 	public static IndexColorModel createGreenColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
 		byte[] greens = new byte[numColors];

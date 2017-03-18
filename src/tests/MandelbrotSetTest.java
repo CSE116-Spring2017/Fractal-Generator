@@ -54,7 +54,6 @@ public class MandelbrotSetTest {
 	 * (0.5946289062500001, 1.2949218750000122) exceeds the escape distance 2
 	 * after a single loop pass, so escape time == 1
 	 */
-
 	@Test
 	public void MandelbrotSingleLoop() {
 		MandelbrotSet m = new MandelbrotSet();

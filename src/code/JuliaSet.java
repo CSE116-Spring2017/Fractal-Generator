@@ -103,6 +103,7 @@ public class JuliaSet implements Set {
 		}
 		return yy;
 	}
+	
 	/**
 	 * Update the escape distance {@code _escapeDis} of the Julia Set by {@code escapeDis}
 	 */

@@ -25,7 +25,6 @@ public class JuliaSetTest {
 	 * Julia Set Translate a pixel's column to the associated y-coordinate in
 	 * the fractal test for the first, second and last y coordinate
 	 */
-
 	@Test
 	public void JuliaSetColToYCoordinate() {
 		JuliaSet js = new JuliaSet();
@@ -41,7 +40,6 @@ public class JuliaSetTest {
 	 * (1.0492187499999897, -0.234375) never exceed escape distance 2, so escape
 	 * time == 255
 	 */
-
 	@Test
 	public void JuliaSetNeverExceedEscDis() {
 		JuliaSet js = new JuliaSet();
