@@ -1,14 +1,8 @@
 package code;
 
-
-
-
-
-
-
-
-
-
+/* An interface that allows the model to properly get all the details for each fractal. Just an easy way to access all the data
+ * 
+ * */
 
 
 public interface Set {

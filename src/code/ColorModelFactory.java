@@ -85,6 +85,17 @@ public class ColorModelFactory {
 		return retVal;
 	}
 
+	/**
+	 * Create a color model that contains different shades of red. The number of
+	 * colors included in the model is set by the parameter. This should be 1
+	 * more than the maximum number of steps for the fractal.
+	 * 
+	 * @param numColors
+	 *            Number of different color shades to use.
+	 * @return Color model that shows all of the different possible shades of
+	 *         red.
+	 */
+
 	public static IndexColorModel createRedColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
 		byte[] greens = new byte[numColors];
@@ -97,6 +108,17 @@ public class ColorModelFactory {
 		IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
 		return retVal;
 	}
+
+	/**
+	 * Create a color model that contains different shades of white. The number
+	 * of colors included in the model is set by the parameter. This should be 1
+	 * more than the maximum number of steps for the fractal.
+	 * 
+	 * @param numColors
+	 *            Number of different color shades to use.
+	 * @return Color model that shows all of the different possible shades of
+	 *         white.
+	 */
 
 	public static IndexColorModel createWhiteColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
@@ -112,6 +134,17 @@ public class ColorModelFactory {
 		return retVal;
 	}
 
+	/**
+	 * Create a color model that contains different shades of black. The number
+	 * of colors included in the model is set by the parameter. This should be 1
+	 * more than the maximum number of steps for the fractal.
+	 * 
+	 * @param numColors
+	 *            Number of different color shades to use.
+	 * @return Color model that shows all of the different possible shades of
+	 *         black.
+	 */
+
 	public static IndexColorModel createBlackColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
 		byte[] greens = new byte[numColors];
@@ -126,6 +159,16 @@ public class ColorModelFactory {
 		return retVal;
 	}
 
+	/**
+	 * Create a color model that contains a custom color. The number of colors
+	 * included in the model is set by the parameter. This should be 1 more than
+	 * the maximum number of steps for the fractal.
+	 * 
+	 * @param numColors
+	 *            Number of different color shades to use.
+	 * @return Color model that returns the shades of the custom color
+	 */
+
 	public static IndexColorModel createRandColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
 		byte[] greens = new byte[numColors];
@@ -139,6 +182,17 @@ public class ColorModelFactory {
 		IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
 		return retVal;
 	}
+
+	/**
+	 * Create a color model that contains different shades of green. The number
+	 * of colors included in the model is set by the parameter. This should be 1
+	 * more than the maximum number of steps for the fractal.
+	 * 
+	 * @param numColors
+	 *            Number of different color shades to use.
+	 * @return Color model that shows all of the different possible shades of
+	 *         green.
+	 */
 
 	public static IndexColorModel createGreenColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
