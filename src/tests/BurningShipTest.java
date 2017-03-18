@@ -65,7 +65,7 @@ public class BurningShipTest {
 
 	/**
 	 * Burning Ship Set test for escape time for the given coordinate
-	 * (-1.6999999999999802, 0.0030136986301371603) exceeds the escape distance 2
+	 * (-1.6999999999999802, 0.0030136986301371603) exceeds the escape distance
 	 * 3 after a ten loop pass, so escape time == 10
 	 */
 	@Test
