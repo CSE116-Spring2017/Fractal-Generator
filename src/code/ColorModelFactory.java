@@ -169,7 +169,7 @@ public class ColorModelFactory {
 	 * @return Color model that returns the shades of the custom color
 	 */
 
-	public static IndexColorModel createRandColorModel(int numColors) {
+	public static IndexColorModel createWhiteBlueColorModel(int numColors) {
 		byte[] reds = new byte[numColors];
 		byte[] greens = new byte[numColors];
 		byte[] blues = new byte[numColors];

@@ -22,7 +22,6 @@ public class JuliaSet implements Set {
 	public JuliaSet() {
 		_x = setCoordinateX();
 		_y = setCoordinateY();
-		_escapeDis = 2;
 	}
 
 	/**
@@ -104,7 +103,9 @@ public class JuliaSet implements Set {
 		}
 		return yy;
 	}
-
+	/**
+	 * Update the escape distance {@code _escapeDis} of the Julia Set by {@code escapeDis}
+	 */
 	@Override
 	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
@@ -117,7 +118,7 @@ public class JuliaSet implements Set {
 	 * @return 2-d array of double
 	 */
 	@Override
-	public int[][] getFractals() {
+	public int[][] getEscapeTime() {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {

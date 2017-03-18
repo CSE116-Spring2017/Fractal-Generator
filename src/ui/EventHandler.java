@@ -27,7 +27,7 @@ public class EventHandler implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		_model.escapeTime(_s);
+		_model.setEscapeTime(_s);
 	}
 
 }

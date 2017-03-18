@@ -38,7 +38,7 @@ public class JuliaSetTest {
 
 	/**
 	 * Julia Set test for escape time for the given coordinate
-	 * (1.0492187499999897, -0.234375) never exceed escape distance, so escape
+	 * (1.0492187499999897, -0.234375) never exceed escape distance 2, so escape
 	 * time == 255
 	 */
 
@@ -50,7 +50,7 @@ public class JuliaSetTest {
 
 	/**
 	 * Julia Set test for escape time for the given coordinate
-	 * (1.6933593749999853, 0.9765625) exceeds the escape distance after a
+	 * (1.6933593749999853, 0.9765625) exceeds the escape distance 2 after a
 	 * single loop pass, so escape time == 1
 	 */
 	@Test
@@ -77,7 +77,8 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetFractalSize() {
 		JuliaSet js = new JuliaSet();
-		int[][] result = js.getFractals();
+		js.setEscapeDis(2);
+		int[][] result = js.getEscapeTime();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 	}
