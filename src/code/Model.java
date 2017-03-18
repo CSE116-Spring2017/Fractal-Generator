@@ -1,5 +1,9 @@
 package code;
 
+/**
+ * 
+ * WRITE DESCRIPTION OF THE MODEL CLASS WEN. THANK YOU!!
+ */
 import java.awt.image.IndexColorModel;
 
 import ui.UI;

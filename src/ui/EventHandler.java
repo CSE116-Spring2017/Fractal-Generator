@@ -1,5 +1,10 @@
 package ui;
 
+/**
+ * 
+ * This class is used to set the fractal selected by the user.
+ */
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +21,10 @@ public class EventHandler implements ActionListener {
 		_s = s;
 	}
 
+	/**
+	 * Passes on the fractal selected by the user to the model class.
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		_model.escapeTime(_s);
