@@ -32,7 +32,6 @@ public class UI implements Runnable {
 	public void run() {
 
 		_frame = new JFrame();
-
 		_menub = new JMenuBar();		
 		/**
 		 * Creates a JMenu named "File" Creates 1 JMenu
