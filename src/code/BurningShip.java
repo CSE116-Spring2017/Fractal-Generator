@@ -1,5 +1,7 @@
 package code;
 
+import javax.swing.JOptionPane;
+
 /**
  * Class which calculates the Escape-Time Algorithms for Burning Ship Set with
  * X-Coordinate range from -1.8 to -1.7 Y-Coordinate range from -0.08 to 0.025
@@ -101,12 +103,19 @@ public class BurningShip implements Set {
 		int passes = 0;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
-		while (dist <= escapeDis && passes < maxEscTime) {
-			double xtemp = xCalc;
-			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
-			yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
-			passes = passes + 1;
-			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+		if (maxEscTime > 1) {
+			while (dist <= escapeDis && passes < maxEscTime) {
+				double xtemp = xCalc;
+				xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
+				yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
+				passes = passes + 1;
+				dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+			}
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"For burning ship escape time has to be greater than 1. The escape time has been reset to 255",
+					"Time Error", JOptionPane.ERROR_MESSAGE);
+			_maxEscTime = 256;
 		}
 		return passes;
 	}
