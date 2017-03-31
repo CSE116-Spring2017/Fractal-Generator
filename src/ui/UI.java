@@ -250,6 +250,7 @@ public class UI implements Runnable {
 			JOptionPane.showMessageDialog(null,
 					"Invalid input, please enter an integer greater than 0 and less than 256.", "Time Error",
 					JOptionPane.ERROR_MESSAGE);
+		} catch (NullPointerException npe) {
 		}
 	}
 
