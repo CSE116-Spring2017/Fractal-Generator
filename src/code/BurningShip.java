@@ -14,6 +14,7 @@ public class BurningShip implements Set {
 	/** Array of all the y-coordinate */
 	private double[][] _y;
 	private int _escapeDis;
+	private int _maxEscTime;
 
 	/**
 	 * Create a Burning Ship Set with array of x coordinate range from -1.8 to
@@ -82,6 +83,10 @@ public class BurningShip implements Set {
 	 * point's y-coordinate Increase passes by 1 Set dist distance from the
 	 * point (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
 	 *
+	 * @param int
+	 *            maxEscTime
+	 * @param int
+	 *            escapeDis
 	 * @param double
 	 *            currentx (x coordinate for which we will search)
 	 * @param double
@@ -90,29 +95,38 @@ public class BurningShip implements Set {
 	 *         {@code currenty})
 	 */
 	@Override
-	public int escapeTime(int escapeDis, double currentx, double currenty) {
+	public int escapeTime(int maxEscTime, int escapeDis, double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
 		int passes = 0;
-			double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
-			while (dist <= escapeDis && passes < 255) {
-
-				double xtemp = xCalc;
-				xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
-				yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
-				passes = passes + 1;
-				dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
-			}
+		while (dist <= escapeDis && passes < maxEscTime) {
+			double xtemp = xCalc;
+			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
+			yCalc = Math.abs(2 * xtemp * yCalc) + currenty;
+			passes = passes + 1;
+			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+		}
 		return passes;
 	}
-	
+
 	/**
-	 * Update the escape distance {@code _escapeDis} of the BurningShip by {@code escapeDis}
+	 * Update the escape distance {@code _escapeDis} of the BurningShip by
+	 * {@code escapeDis}
 	 */
 	@Override
 	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
+	}
+
+	/**
+	 * Update the max escape time {@code _maxEscTime} of the Burning Ship Set by
+	 * {@code maxEscTime}
+	 */
+	@Override
+	public void setMaxEscapeTime(int maxEscTime) {
+		_maxEscTime = maxEscTime;
 	}
 
 	/**
@@ -125,7 +139,7 @@ public class BurningShip implements Set {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_escapeDis, _x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_maxEscTime, _escapeDis, _x[row][col], _y[row][col]);
 
 			}
 		}

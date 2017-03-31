@@ -27,7 +27,7 @@ public class EventHandler implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		_model.setEscapeTime(_s);
+		_model.setFractal(_s);
 	}
     
 }

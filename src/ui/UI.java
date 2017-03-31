@@ -188,7 +188,7 @@ public class UI implements Runnable {
 		try {
 			distance = Integer.parseInt(input);
 			if (distance > 0) {
-				_model.escapeDis(distance);
+				_model.setEscapeDis(distance);
 			} else {
 				JOptionPane.showMessageDialog(null, "The integer has to be greater than 0.", "Distance Error",
 						JOptionPane.ERROR_MESSAGE);

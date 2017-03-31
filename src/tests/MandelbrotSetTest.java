@@ -16,7 +16,6 @@ public class MandelbrotSetTest {
 	public void MandelbrotRowToXCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
 		double[][] x = m.setCoordinateX();
-		;
 		assertEquals(-2.15, x[0][0], 0.0001);
 		assertEquals(-2.1446184, x[1][0], 0.0001);
 		assertEquals(0.6, x[511][0], 0.0001);
@@ -45,7 +44,7 @@ public class MandelbrotSetTest {
 	@Test
 	public void MandelbrotNeverExceedEscDis() {
 		MandelbrotSet m = new MandelbrotSet();
-		assertEquals(255, m.escapeTime(2, 0.3207031250000001, -0.07109374999999386));
+		assertEquals(255, m.escapeTime(255, 2, 0.3207031250000001, -0.07109374999999386));
 
 	}
 
@@ -57,7 +56,7 @@ public class MandelbrotSetTest {
 	@Test
 	public void MandelbrotSingleLoop() {
 		MandelbrotSet m = new MandelbrotSet();
-		assertEquals(1, m.escapeTime(2, 0.5946289062500001, 1.2949218750000122));
+		assertEquals(1, m.escapeTime(255, 2, 0.5946289062500001, 1.2949218750000122));
 	}
 
 	/**
@@ -68,7 +67,7 @@ public class MandelbrotSetTest {
 	@Test
 	public void MandelbrotTenLoop() {
 		MandelbrotSet m = new MandelbrotSet();
-		assertEquals(10, m.escapeTime(3, 0.46007827788650374, -0.3383561643835661));
+		assertEquals(10, m.escapeTime(255, 3, 0.46007827788650374, -0.3383561643835661));
 	}
 
 	/**
@@ -79,6 +78,7 @@ public class MandelbrotSetTest {
 	public void MandelbrotFractalSize() {
 		MandelbrotSet m = new MandelbrotSet();
 		m.setEscapeDis(2);
+		m.setMaxEscapeTime(255);
 		int[][] result = m.getEscapeTime();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);

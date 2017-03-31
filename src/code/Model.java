@@ -15,6 +15,9 @@ public class Model {
 	/** The escape time of the fractal that need to be display on UI*/
 	private int[][] _escapeTime;
 	
+	/** The max escape time of the fractal that need to be display on UI*/
+	private int _maxEscTime;
+	
 	/** The IndexColorModel that need to be display on UI*/
 	private IndexColorModel _indexColorModel;
 	
@@ -28,11 +31,11 @@ public class Model {
 	public Model() {
 		/** Set default escape Distance to 2*/
 		_escapeDistance = 2;
+		_maxEscTime = 255;
 	}
 
 	public void addObserver(UI ui) {
 		_ui = ui;
-
 	}
 	
 	/**
@@ -53,11 +56,23 @@ public class Model {
 	 * @param set
 	 */
 
-	public void setEscapeTime(Set set) {
+	public void setFractal(Set set) {
 		_set = set;
 		_set.setEscapeDis(_escapeDistance);
+		_set.setMaxEscapeTime(_maxEscTime);
 		_escapeTime = _set.getEscapeTime();
 		_ui.update();
+	}
+	
+	/**
+	 * Update the max escape time {@code _maxEscTime} by {@param maxEscTime} entered by the user
+	 * Then call {@code escapeTime(_set)} to get the new escape time for current fractal set {@code _set}
+	 * 
+	 * @param maxEscTime
+	 */
+	public void setMaxEscTime(int maxEscTime) {
+		_maxEscTime = maxEscTime;
+		setFractal(_set);
 	}
 
 	/**
@@ -66,9 +81,9 @@ public class Model {
 	 * 
 	 * @param escapeDis
 	 */
-	public void escapeDis(int escapeDistance) {
+	public void setEscapeDis(int escapeDistance) {
 		_escapeDistance = escapeDistance;
-		setEscapeTime(_set);
+		setFractal(_set);
 	}
 
 	/**

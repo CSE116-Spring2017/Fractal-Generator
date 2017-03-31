@@ -13,6 +13,7 @@ public class MandelbrotSet implements Set {
 	/** Array of all the y-coordinate */
 	private double[][] _y;
 	private int _escapeDis;
+	private int _maxEscTime;
 
 	/**
 	 * Create a Mandelbrot Set with array of x coordinate range from -2.15 to
@@ -79,6 +80,10 @@ public class MandelbrotSet implements Set {
 	 * y-coordinate Increase passes by 1 Set dist distance from the point
 	 * (xCalc, yCalc) to (0,0) using the Pythagorean theorem EndWhile
 	 *
+	 * @param int
+	 *            maxEscTime
+	 * @param int
+	 *            escapeDis
 	 * @param double
 	 *            currentx (x coordinate for which we will search)
 	 * @param double
@@ -87,13 +92,13 @@ public class MandelbrotSet implements Set {
 	 *         {@code currenty})
 	 */
 	@Override
-	public int escapeTime(int escapeDis, double currentx, double currenty) {
+	public int escapeTime(int maxEscTime, int escapeDis, double currentx, double currenty) {
 		double xCalc = currentx;
 		double yCalc = currenty;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 
-		while (dist <= escapeDis && passes < 255) {
+		while (dist <= escapeDis && passes < maxEscTime) {
 			double xtemp = xCalc;
 			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
 			yCalc = 2 * xtemp * yCalc + currenty;
@@ -111,6 +116,14 @@ public class MandelbrotSet implements Set {
 	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
 	}
+	
+	/**
+	 * Update the max escape time {@code _maxEscTime} of the Mandelbrot Set by {@code maxEscTime}
+	 */
+	@Override
+	public void setMaxEscapeTime(int maxEscTime) {
+		_maxEscTime = maxEscTime;
+	}
 
 	/**
 	 * return 2-d array of escape-time for each of these 262144 coordinate pairs
@@ -122,7 +135,7 @@ public class MandelbrotSet implements Set {
 		int[][] result = new int[512][512];
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
-				result[row][col] = escapeTime(_escapeDis, _x[row][col], _y[row][col]);
+				result[row][col] = escapeTime(_maxEscTime, _escapeDis, _x[row][col], _y[row][col]);
 			}
 		}
 		return result;

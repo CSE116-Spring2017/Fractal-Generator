@@ -43,7 +43,7 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipNeverExceedEscDis() {
 		BurningShip ship = new BurningShip();
-		assertEquals(255, ship.escapeTime(2, -1.7443359374999874, -0.017451171875000338));
+		assertEquals(255, ship.escapeTime(255, 2, -1.7443359374999874, -0.017451171875000338));
 	}
 
 	/**
@@ -54,6 +54,7 @@ public class BurningShipTest {
 	public void BurningShipEscapeTime() {
 		BurningShip ship = new BurningShip();
 		ship.setEscapeDis(2);
+		ship.setMaxEscapeTime(255);
 		int[][] result = ship.getEscapeTime();
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
@@ -71,7 +72,7 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipTenLoop() {
 		BurningShip ship = new BurningShip();
-		assertEquals(10, ship.escapeTime(3, -1.6999999999999802, 0.0030136986301371603));
+		assertEquals(10, ship.escapeTime(255, 3, -1.6999999999999802, 0.0030136986301371603));
 	}
 
 	/**
@@ -82,6 +83,7 @@ public class BurningShipTest {
 	public void BurningShipFractalSize() {
 		BurningShip ship = new BurningShip();
 		ship.setEscapeDis(2);
+		ship.setMaxEscapeTime(255);
 		int[][] result = ship.getEscapeTime();		
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);

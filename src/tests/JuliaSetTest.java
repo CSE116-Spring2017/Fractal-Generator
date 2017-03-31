@@ -43,7 +43,7 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetNeverExceedEscDis() {
 		JuliaSet js = new JuliaSet();
-		assertEquals(255, js.escapeTime(2, 1.0492187499999897, -0.234375));
+		assertEquals(255, js.escapeTime(255, 2, 1.0492187499999897, -0.234375));
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetSingleLoop() {
 		JuliaSet js = new JuliaSet();
-		assertEquals(1, js.escapeTime(2, 1.6933593749999853, 0.9765625));
+		assertEquals(1, js.escapeTime(255, 2, 1.6933593749999853, 0.9765625));
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetTenLoop() {
 		JuliaSet js = new JuliaSet();
-		assertEquals(10, js.escapeTime(3, 1.4538160469667272, -0.13502935420743645));
+		assertEquals(10, js.escapeTime(255, 3, 1.4538160469667272, -0.13502935420743645));
 	}
 
 	/**
@@ -76,6 +76,7 @@ public class JuliaSetTest {
 	public void JuliaSetFractalSize() {
 		JuliaSet js = new JuliaSet();
 		js.setEscapeDis(2);
+		js.setMaxEscapeTime(255);
 		int[][] result = js.getEscapeTime();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);

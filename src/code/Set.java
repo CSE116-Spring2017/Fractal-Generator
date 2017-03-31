@@ -12,10 +12,12 @@ public interface Set {
 
 	public double[][] setCoordinateY();
 
-	public int escapeTime(int escapeDis, double currentx, double currenty);
-
+	public int escapeTime(int maxEscTime, int escapeDis,double currentx,double currenty);
+	
 	public int[][] getEscapeTime();
-
+	
 	public void setEscapeDis(int escapeDis);
+	
+	public void setMaxEscapeTime(int maxEscTime);
 	
 }
