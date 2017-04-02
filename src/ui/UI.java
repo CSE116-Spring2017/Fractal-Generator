@@ -205,7 +205,7 @@ public class UI implements Runnable {
 		_model.addObserver(this);
 		update();
 		
-		_frame.addMouseListener(new MouseHandler(_model));
+		_frame.addMouseMotionListener(new MouseHandler(_model));
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_frame.pack();
 		_frame.setVisible(true);
