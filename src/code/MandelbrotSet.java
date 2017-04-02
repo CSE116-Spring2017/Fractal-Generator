@@ -141,4 +141,22 @@ public class MandelbrotSet implements Set {
 		return result;
 	}
 
+	@Override
+	public double[][] setCoordinateX(double x1, double x2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double[][] setCoordinateY(double y1, double y2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int[][] setEscapeTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

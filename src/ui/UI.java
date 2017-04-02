@@ -3,6 +3,7 @@ package ui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -59,7 +60,7 @@ public class UI implements Runnable {
 		JMenuItem mandelbrot = new JMenuItem("Mandelbrot Set");
 		mandelbrot.addActionListener(new EventHandler(_model, new MandelbrotSet()));
 		JMenuItem julia = new JMenuItem("Julia Set");
-		julia.addActionListener(new EventHandler(_model, new JuliaSet()));
+		julia.addActionListener(new EventHandler(_model, new JuliaSet(-1.7,1.7,-1.0,1.0)));
 		JMenuItem burningShip = new JMenuItem("Burning Ship Set");
 		burningShip.addActionListener(new EventHandler(_model, new BurningShip()));
 		JMenuItem multibrot = new JMenuItem("Multibrot Set");
@@ -203,7 +204,8 @@ public class UI implements Runnable {
 		_frame.getContentPane().setLayout(new BoxLayout(_frame.getContentPane(), BoxLayout.Y_AXIS));
 		_model.addObserver(this);
 		update();
-
+		
+		_frame.addMouseListener(new MouseHandler(_model));
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_frame.pack();
 		_frame.setVisible(true);

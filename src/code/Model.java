@@ -26,7 +26,11 @@ public class Model {
 	
 	/** The escape distance of the fractal*/
 	private int _escapeDistance;
-
+	
+	private double _x;
+	private double _xx;
+	private double _y;
+	private double _yy;
 	
 	public Model() {
 		/** Set default escape Distance to 2*/
@@ -115,5 +119,17 @@ public class Model {
 	public boolean newFractal() {
 		return getSelectColor() != null && getEscapeTime() != null;
 	}
-
+	
+	public void setX(double x, double xx){
+		_x = x;
+		_xx = xx;
+	_set.setCoordinateX(_x, _xx);	
+	}
+	
+	public void setY(double y, double yy){
+		_y = y;
+		_yy = yy;
+	_set.setCoordinateY(_y, _yy);
+	_ui.update();
+	}
 }

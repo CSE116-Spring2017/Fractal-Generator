@@ -19,5 +19,10 @@ public interface Set {
 	public void setEscapeDis(int escapeDis);
 	
 	public void setMaxEscapeTime(int maxEscTime);
+
+	double[][] setCoordinateX(double x1, double x2);
 	
+	double[][] setCoordinateY(double y1, double y2);
+
+	public int[][] setEscapeTime();
 }

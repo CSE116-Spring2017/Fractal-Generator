@@ -13,6 +13,9 @@ public class JuliaSet implements Set {
 	private double[][] _y;
 	private int _escapeDis;
 	private int _maxEscTime;
+	
+	private double[][] _xx;
+	private double[][] _yy;
 
 	/**
 	 * Create a Mandelbrot Set with array of x coordinate range from -1.7 to
@@ -20,9 +23,12 @@ public class JuliaSet implements Set {
 	 * with 512 equally-spaced array of escape-time for each of 262144 pairs
 	 */
 
-	public JuliaSet() {
+	public JuliaSet(double x, double xx, double y, double yy) {
 		_x = setCoordinateX();
 		_y = setCoordinateY();
+		
+		_xx = setCoordinateX(x, xx);
+		_yy = setCoordinateX(y, yy);
 	}
 
 	/**
@@ -86,6 +92,20 @@ public class JuliaSet implements Set {
 		}
 		return xx;
 	}
+	
+	
+	public double[][] setCoordinateX(double x1, double x2){
+		double[][] xx = new double[512][512];
+		double dx = (Math.abs(x1 + x2)) / 511;
+		double x = x1;
+		for (int row = 0; row < xx.length; row++) {
+			for (int col = 0; col < xx[row].length; col++) {
+				xx[row][col] = x;
+			}
+			x = x + dx;
+		}
+		return xx;
+	}
 
 	/**
 	 * Set up all the y according to Cartesian plane return a 2-d array of
@@ -109,6 +129,18 @@ public class JuliaSet implements Set {
 		return yy;
 	}
 	
+	public double[][] setCoordinateY(double y1, double y2){
+		double[][] yy = new double[512][512];
+		double dy = (Math.abs(y1 + y2)) / 511;
+		for (int row = 0; row < yy.length; row++) {
+			double y = y1;
+			for (int col = 0; col < yy[row].length; col++) {
+				yy[row][col] = y;
+				y = y + dy;
+			}
+		}
+		return yy;
+	}
 	/**
 	 * Update the escape distance {@code _escapeDis} of the Julia Set by {@code escapeDis}
 	 */
@@ -141,5 +173,15 @@ public class JuliaSet implements Set {
 		}
 		return result;
 	}
-
+	
+	@Override
+	public int[][] setEscapeTime(){
+		int[][] result = new int[512][512];
+		for (int row = 0; row < result.length; row = row + 1) {
+			for (int col = 0; col < result[row].length; col = col + 1) {
+				result[row][col] = escapeTime(_maxEscTime, _escapeDis, _xx[row][col], _yy[row][col]);
+			}
+		}
+		return result;
+	}
 }
