@@ -15,7 +15,8 @@ public class MandelbrotSetTest {
 	@Test
 	public void MandelbrotRowToXCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
-		double[][] x = m.setCoordinateX();
+		m.setCoordinateX(-2.15, 0.6);
+		double[][] x = m.getCoordinateX();
 		assertEquals(-2.15, x[0][0], 0.0001);
 		assertEquals(-2.1446184, x[1][0], 0.0001);
 		assertEquals(0.6, x[511][0], 0.0001);
@@ -29,7 +30,8 @@ public class MandelbrotSetTest {
 	@Test
 	public void MandelbrotColToYCoordinate() {
 		MandelbrotSet m = new MandelbrotSet();
-		double[][] y = m.setCoordinateY();
+		m.setCoordinateY(-1.3, 1.3);
+		double[][] y = m.getCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.0001);
 		assertEquals(-1.29491194, y[0][1], 0.0001);
 		assertEquals(1.3, y[0][511], 0.0001);
@@ -38,14 +40,25 @@ public class MandelbrotSetTest {
 
 	/**
 	 * Mandelbrot Set test for escape time for the given coordinate
-	 * (0.3207031250000001, -0.07109374999999386) never exceed escape distance 2,
-	 * so escape time == 255
+	 * (0.3207031250000001, -0.07109374999999386) never exceed escape distance
+	 * 2, so escape time == 255
 	 */
 	@Test
 	public void MandelbrotNeverExceedEscDis() {
 		MandelbrotSet m = new MandelbrotSet();
 		assertEquals(255, m.escapeTime(255, 2, 0.3207031250000001, -0.07109374999999386));
 
+	}
+
+	/**
+	 * Mandelbrot Set test for escape time for the given coordinate
+	 * (0.3207031250000001, -0.07109374999999386) never exceed escape distance
+	 * 2, so escape time == 135
+	 */
+	@Test
+	public void MandelbrotNeverExceedEscapeDistance() {
+		MandelbrotSet m = new MandelbrotSet();
+		assertEquals(135, m.escapeTime(135, 2, 0.3207031250000001, -0.07109374999999386));
 	}
 
 	/**

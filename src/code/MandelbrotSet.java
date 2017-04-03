@@ -21,9 +21,13 @@ public class MandelbrotSet implements Set {
 	 * with 512 equally-spaced array of escape-time for each of 262144 pairs
 	 */
 	public MandelbrotSet() {
-		_x = setCoordinateX();
-		_y = setCoordinateY();
+		reset();
+	}
 
+	@Override
+	public void reset() {
+		setCoordinateX(-2.15, 0.6);
+		setCoordinateY(-1.3, 1.3);
 	}
 
 	/**
@@ -32,20 +36,19 @@ public class MandelbrotSet implements Set {
 	 * the start of the x range which is -2.15 x + change of x when row increase
 	 * by one increase of column does not effect anything
 	 * 
-	 * @return 2-d array of double
 	 */
 	@Override
-	public double[][] setCoordinateX() {
+	public void setCoordinateX(double x1, double x2) {
 		double[][] xx = new double[512][512];
-		double dx = (2.15 + 0.6) / 511;
-		double x = -2.15;
+		double dx = Math.abs(x1 - x2) / 511;
+		double x = x1;
 		for (int row = 0; row < xx.length; row++) {
 			for (int col = 0; col < xx[row].length; col++) {
 				xx[row][col] = x;
 			}
 			x = x + dx;
 		}
-		return xx;
+		_x = xx;
 	}
 
 	/**
@@ -54,20 +57,29 @@ public class MandelbrotSet implements Set {
 	 * the start of the y range which is -1.3 y + change of y when column
 	 * increase by one increase of row does not effect anything
 	 * 
-	 * @return 2-d array of double
 	 */
 	@Override
-	public double[][] setCoordinateY() {
+	public void setCoordinateY(double y1, double y2) {
 		double[][] yy = new double[512][512];
-		double dy = (1.3 + 1.3) / 511;
+		double dy = Math.abs(y1 - y2) / 511;
 		for (int row = 0; row < yy.length; row++) {
-			double y = -1.3;
+			double y = y1;
 			for (int col = 0; col < yy[row].length; col++) {
 				yy[row][col] = y;
 				y = y + dy;
 			}
 		}
-		return yy;
+		_y = yy;
+	}
+
+	@Override
+	public double[][] getCoordinateX() {
+		return _x;
+	}
+
+	@Override
+	public double[][] getCoordinateY() {
+		return _y;
 	}
 
 	/**
@@ -108,17 +120,19 @@ public class MandelbrotSet implements Set {
 
 		return passes;
 	}
-	
+
 	/**
-	 * Update the escape distance {@code _escapeDis} of the Mandelbrot Set by {@code escapeDis}
+	 * Update the escape distance {@code _escapeDis} of the Mandelbrot Set by
+	 * {@code escapeDis}
 	 */
 	@Override
 	public void setEscapeDis(int escapeDis) {
 		_escapeDis = escapeDis;
 	}
-	
+
 	/**
-	 * Update the max escape time {@code _maxEscTime} of the Mandelbrot Set by {@code maxEscTime}
+	 * Update the max escape time {@code _maxEscTime} of the Mandelbrot Set by
+	 * {@code maxEscTime}
 	 */
 	@Override
 	public void setMaxEscapeTime(int maxEscTime) {
@@ -140,23 +154,4 @@ public class MandelbrotSet implements Set {
 		}
 		return result;
 	}
-
-	@Override
-	public double[][] setCoordinateX(double x1, double x2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public double[][] setCoordinateY(double y1, double y2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[][] setEscapeTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

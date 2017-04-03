@@ -15,7 +15,8 @@ public class MultibrotSetTest {
 	@Test
 	public void MultibrotSetRowToXCoordinate() {
 		MultibrotSet mb = new MultibrotSet();
-		double[][] x = mb.setCoordinateX();
+		mb.setCoordinateX(-1.0, 1.0);
+		double[][] x = mb.getCoordinateX();
 		assertEquals(-1.0, x[0][0], 0.0001);
 		assertEquals(-0.99608611, x[1][0], 0.0001);
 		assertEquals(1.0, x[511][0], 0.0001);
@@ -28,7 +29,8 @@ public class MultibrotSetTest {
 	@Test
 	public void MultibrotSetColToYCoordinate() {
 		MultibrotSet mb = new MultibrotSet();
-		double[][] y = mb.setCoordinateY();
+		mb.setCoordinateY(-1.3, 1.3);
+		double[][] y = mb.getCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.0001);
 		assertEquals(-1.29491194, y[0][1], 0.0001);
 		assertEquals(1.3, y[0][511], 0.0001);
@@ -36,7 +38,8 @@ public class MultibrotSetTest {
 
 	/**
 	 * Multibrot Set test for escape time for the given coordinate (0.5859375,
-	 * 0.24375000000000108) never exceed escape distance 2, so escape time == 255
+	 * 0.24375000000000108) never exceed escape distance 2, so escape time ==
+	 * 255
 	 */
 	@Test
 	public void MultibrotNeverExceedEscDis() {
@@ -45,9 +48,20 @@ public class MultibrotSetTest {
 	}
 
 	/**
+	 * Multibrot Set test for escape time for the given coordinate (0.5859375,
+	 * 0.24375000000000108) never exceed escape distance 2, so escape time ==
+	 * 135
+	 */
+	@Test
+	public void MultibrotNeverExceedEscapeDistance() {
+		MultibrotSet mb = new MultibrotSet();
+		assertEquals(135, mb.escapeTime(135, 2, 0.5859375, 0.24375000000000108));
+	}
+
+	/**
 	 * Multibrot Set test for escape time for the given coordinate (0.9921875,
-	 * 1.05625) exceeds the escape distance 2 after a single loop pass, so escape
-	 * time == 1
+	 * 1.05625) exceeds the escape distance 2 after a single loop pass, so
+	 * escape time == 1
 	 */
 	@Test
 	public void MultibrotSetSingleLoop() {

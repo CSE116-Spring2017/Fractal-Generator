@@ -25,10 +25,13 @@ public class BurningShip implements Set {
 	 * pairs
 	 */
 	public BurningShip() {
+		reset();
+	}
 
-		_x = setCoordinateX();
-		_y = setCoordinateY();
-
+	@Override
+	public void reset() {
+		setCoordinateX(-1.8, -1.7);
+		setCoordinateY(-0.08, 0.025);
 	}
 
 	/**
@@ -37,20 +40,19 @@ public class BurningShip implements Set {
 	 * the start of the x range which is -1.8 x + change of x when row increase
 	 * by one increase of column does not effect anything
 	 * 
-	 * @return 2-d array of double
 	 */
 	@Override
-	public double[][] setCoordinateX() {
+	public void setCoordinateX(double x1, double x2) {
 		double[][] xx = new double[512][512];
-		double dx = (.1) / 511;
-		double x = -1.8;
+		double dx = Math.abs(x1 - x2) / 511;
+		double x = x1;
 		for (int row = 0; row < xx.length; row++) {
 			for (int col = 0; col < xx[row].length; col++) {
 				xx[row][col] = x;
 			}
 			x = x + dx;
 		}
-		return xx;
+		_x = xx;
 	}
 
 	/**
@@ -59,20 +61,29 @@ public class BurningShip implements Set {
 	 * the start of the y range which is -0.08 y + change of y when column
 	 * increase by one increase of row does not effect anything
 	 * 
-	 * @return 2-d array of double
 	 */
 	@Override
-	public double[][] setCoordinateY() {
+	public void setCoordinateY(double y1, double y2) {
 		double[][] yy = new double[512][512];
-		double dy = (.08 + .025) / 511;
+		double dy = Math.abs(y1 - y2) / 511;
 		for (int row = 0; row < yy.length; row++) {
-			double y = -0.08;
+			double y = y1;
 			for (int col = 0; col < yy[row].length; col++) {
 				yy[row][col] = y;
 				y = y + dy;
 			}
 		}
-		return yy;
+		_y = yy;
+	}
+
+	@Override
+	public double[][] getCoordinateX() {
+		return _x;
+	}
+
+	@Override
+	public double[][] getCoordinateY() {
+		return _y;
 	}
 
 	/**
@@ -154,23 +165,4 @@ public class BurningShip implements Set {
 		}
 		return result;
 	}
-
-	@Override
-	public double[][] setCoordinateX(double x1, double x2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public double[][] setCoordinateY(double y1, double y2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[][] setEscapeTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

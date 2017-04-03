@@ -15,7 +15,8 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetRowToXCoordinate() {
 		JuliaSet js = new JuliaSet();
-		double[][] x = js.setCoordinateX();
+		js.setCoordinateX(-1.7, 1.7);
+		double[][] x = js.getCoordinateX();
 		assertEquals(-1.7, x[0][0], 0.0001);
 		assertEquals(-1.69334638, x[1][0], 0.0001);
 		assertEquals(1.7, x[511][0], 0.0001);
@@ -28,7 +29,8 @@ public class JuliaSetTest {
 	@Test
 	public void JuliaSetColToYCoordinate() {
 		JuliaSet js = new JuliaSet();
-		double[][] y = js.setCoordinateY();
+		js.setCoordinateY(-1.0, 1.0);
+		double[][] y = js.getCoordinateY();
 		assertEquals(-1.0, y[0][0], 0.0001);
 		assertEquals(-0.99608611, y[0][1], 0.0001);
 		assertEquals(1.0, y[0][511], 0.0001);
@@ -44,6 +46,17 @@ public class JuliaSetTest {
 	public void JuliaSetNeverExceedEscDis() {
 		JuliaSet js = new JuliaSet();
 		assertEquals(255, js.escapeTime(255, 2, 1.0492187499999897, -0.234375));
+	}
+
+	/**
+	 * Julia Set test for escape time for the given coordinate
+	 * (1.0492187499999897, -0.234375) never exceed escape distance 2 , so
+	 * escape time == 135
+	 */
+	@Test
+	public void JuliaNeverExceedEscapeDistance() {
+		JuliaSet js = new JuliaSet();
+		assertEquals(135, js.escapeTime(135, 2, 1.0492187499999897, -0.234375));
 	}
 
 	/**

@@ -15,7 +15,8 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipRowToXCoordinate() {
 		BurningShip ship = new BurningShip();
-		double[][] x = ship.setCoordinateX();
+		ship.setCoordinateX(-1.8, -1.7);
+		double[][] x = ship.getCoordinateX();
 		assertEquals(-1.8, x[0][0], 0.0001);
 		assertEquals(-1.79980431, x[1][0], 0.0001);
 		assertEquals(-1.7, x[511][0], 0.0001);
@@ -29,7 +30,8 @@ public class BurningShipTest {
 	@Test
 	public void BurningShipColToYCoordinate() {
 		BurningShip ship = new BurningShip();
-		double[][] y = ship.setCoordinateY();
+		ship.setCoordinateY(-0.08, 0.025);
+		double[][] y = ship.getCoordinateY();
 		assertEquals(-0.08, y[0][0], 0.0001);
 		assertEquals(-0.07979452, y[0][1], 0.0001);
 		assertEquals(0.025, y[0][511], 0.0001);
@@ -37,13 +39,24 @@ public class BurningShipTest {
 
 	/**
 	 * Burning Ship Set test for escape time for the given coordinate
-	 * (-1.7443359374999874, -0.017451171875000338) never exceed escape
-	 * distance 2, so escape time == 255
+	 * (-1.7443359374999874, -0.017451171875000338) never exceed escape distance
+	 * 2, so escape time == 255
 	 */
 	@Test
 	public void BurningShipNeverExceedEscDis() {
 		BurningShip ship = new BurningShip();
 		assertEquals(255, ship.escapeTime(255, 2, -1.7443359374999874, -0.017451171875000338));
+	}
+
+	/**
+	 * Burning Ship Set test for escape time for the given coordinate
+	 * (-1.7443359374999874, -0.017451171875000338) never exceed escape distance
+	 * 2, so escape time == 135
+	 */
+	@Test
+	public void BurningShipNeverExceedEscapeDistance() {
+		BurningShip ship = new BurningShip();
+		assertEquals(135, ship.escapeTime(135, 2, -1.7443359374999874, -0.017451171875000338));
 	}
 
 	/**
@@ -84,7 +97,7 @@ public class BurningShipTest {
 		BurningShip ship = new BurningShip();
 		ship.setEscapeDis(2);
 		ship.setMaxEscapeTime(255);
-		int[][] result = ship.getEscapeTime();		
+		int[][] result = ship.getEscapeTime();
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 

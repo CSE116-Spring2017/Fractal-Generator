@@ -3,7 +3,6 @@ package ui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -24,6 +23,7 @@ public class UI implements Runnable {
 	private FractalPanel _fractalPanel;
 	private ArrayList<JLabel> _hint;
 	private JPanel _hints;
+	private Rectangle _s;
 
 	public UI() {
 		_model = new Model();
@@ -60,7 +60,7 @@ public class UI implements Runnable {
 		JMenuItem mandelbrot = new JMenuItem("Mandelbrot Set");
 		mandelbrot.addActionListener(new EventHandler(_model, new MandelbrotSet()));
 		JMenuItem julia = new JMenuItem("Julia Set");
-		julia.addActionListener(new EventHandler(_model, new JuliaSet(-1.7,1.7,-1.0,1.0)));
+		julia.addActionListener(new EventHandler(_model, new JuliaSet()));
 		JMenuItem burningShip = new JMenuItem("Burning Ship Set");
 		burningShip.addActionListener(new EventHandler(_model, new BurningShip()));
 		JMenuItem multibrot = new JMenuItem("Multibrot Set");
@@ -132,12 +132,12 @@ public class UI implements Runnable {
 		});
 		other.add(escapeDis);
 
-		JMenuItem escapeTime = new JMenuItem("Escape Time");
+		JMenuItem escapeTime = new JMenuItem("Max Escape Time");
 		escapeTime.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String inputDistance = JOptionPane.showInputDialog("Enter an escape time:");
+				String inputDistance = JOptionPane.showInputDialog("Enter a max escape time:");
 				if (inputDistance == null) {
 				} else {
 					checkInputTime(inputDistance);
@@ -147,22 +147,16 @@ public class UI implements Runnable {
 		});
 		other.add(escapeTime);
 
-		JMenuItem reset = new JMenuItem("Reset Fractals");
+		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				try {
-					String timeInput = Integer.toString(255);
-					String disInput = Integer.toString(2);
-					checkInputTime(timeInput);
-					checkInputDistance(disInput);
-				} catch (NullPointerException npe) {
-					JOptionPane.showMessageDialog(null, "Can't reset because no fractal was selected.", "Reset Error",
-							JOptionPane.ERROR_MESSAGE);
+					_model.reset();
+				} catch (NullPointerException n) {
 				}
 			}
-
 		});
 		other.add(reset);
 		/**
@@ -204,8 +198,7 @@ public class UI implements Runnable {
 		_frame.getContentPane().setLayout(new BoxLayout(_frame.getContentPane(), BoxLayout.Y_AXIS));
 		_model.addObserver(this);
 		update();
-		
-		_frame.addMouseMotionListener(new MouseHandler(_model));
+
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_frame.pack();
 		_frame.setVisible(true);
@@ -264,12 +257,31 @@ public class UI implements Runnable {
 	 * set new escape time for {@code _fractalPanel} Then add
 	 * FractalPanel{@code _fractalPanel} to frame {@code _frame}
 	 */
+	@SuppressWarnings("serial")
 	public void newFractal() {
 		_frame.remove(_fractalPanel);
-		_fractalPanel = new FractalPanel();
+		_fractalPanel = new FractalPanel() {
+			@Override
+			public void paint(Graphics g) {
+				super.paint(g);
+				if (_s != null) {
+					g.setColor(Color.cyan);
+					g.drawRect(_s.x, _s.y, _s.width, _s.height);
+				}
+			}
+		};
+		MouseHandler m = new MouseHandler(_model);
+		_fractalPanel.addMouseListener(m);
+		_fractalPanel.addMouseMotionListener(m);
 		_fractalPanel.setIndexColorModel(_model.getSelectColor());
 		_fractalPanel.updateImage(_model.getEscapeTime());
 		_frame.add(_fractalPanel);
+	}
+
+	public void selectionBox(int x, int y, int w, int h) {
+		_s = new Rectangle();
+		_s.setBounds(x, y, w, h);
+		_fractalPanel.repaint();
 	}
 
 	/**
@@ -292,6 +304,7 @@ public class UI implements Runnable {
 		} else {
 			_frame.remove(_hints);
 			newFractal();
+			_s = null;
 		}
 		_frame.pack();
 	}
