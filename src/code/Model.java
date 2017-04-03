@@ -13,6 +13,8 @@ public class Model {
 	/** UI thats initialized by addObserver method */
 	private UI _ui;
 
+	private Boundary _b;
+
 	/** The escape time of the fractal that need to be display on UI */
 	private int[][] _escapeTime;
 
@@ -29,6 +31,7 @@ public class Model {
 	private Set _set;
 
 	public Model() {
+		_b = new Boundary();
 		/** Set default escape Distance to 2 */
 		_escapeDistance = 2;
 		_maxEscTime = 255;
@@ -124,41 +127,13 @@ public class Model {
 		}
 	}
 
-	public Point min(Point p, Point p1) {
-		Point rp = new Point();
-		if (p.x >= p1.x) {
-			rp.x = p1.x;
-		} else if (p.x < p1.x) {
-			rp.x = p.x;
-		}
-		if (p.y >= p1.y) {
-			rp.y = p1.y;
-		} else if (p.y < p1.y) {
-			rp.y = p.y;
-		}
-		return rp;
-	}
-
-	public Point max(Point p, Point p1) {
-		Point rp = new Point();
-		if (p.x <= p1.x) {
-			rp.x = p1.x;
-		} else if (p.x > p1.x) {
-			rp.x = p.x;
-		}
-		if (p.y <= p1.y) {
-			rp.y = p1.y;
-		} else if (p.y > p1.y) {
-			rp.y = p.y;
-		}
-		return rp;
+	public void selection(Point p, Point p1) {
+		_b.selection(this, p, p1);
 	}
 
 	public void setNew(Point p, Point p1) {
-		Point minP = min(p, p1);
-		Point maxP = max(p, p1);
-		_set.setCoordinateX(_set.getCoordinateX()[minP.x][minP.y], _set.getCoordinateX()[maxP.x][maxP.y]);
-		_set.setCoordinateY(_set.getCoordinateY()[minP.x][minP.y], _set.getCoordinateY()[maxP.x][maxP.y]);
+		selection(p, p1);
+		_b.setNew(_set, p, p1);
 		setFractal(_set);
 	}
 
