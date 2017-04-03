@@ -41,36 +41,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 	}
 
-	public Point min(Point p, Point p1) {
-		Point rp = new Point();
-		if (p.x >= p1.x) {
-			rp.x = p1.x;
-		} else if (p.x < p1.x) {
-			rp.x = p.x;
-		}
-		if (p.y >= p1.y) {
-			rp.y = p1.y;
-		} else if (p.y < p1.y) {
-			rp.y = p.y;
-		}
-		return rp;
-	}
-
-	public Point max(Point p, Point p1) {
-		Point rp = new Point();
-		if (p.x <= p1.x) {
-			rp.x = p1.x;
-		} else if (p.x > p1.x) {
-			rp.x = p.x;
-		}
-		if (p.y <= p1.y) {
-			rp.y = p1.y;
-		} else if (p.y > p1.y) {
-			rp.y = p.y;
-		}
-		return rp;
-	}
-
 	public Point checkBound(Point p) {
 		Point rp = new Point(p);
 		if (rp.x > 511) {
@@ -90,7 +60,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	public void mouseReleased(MouseEvent e) {
 		Point p = new Point(checkBound(e.getPoint()));
 		mouseDragged(e);
-		_m.setNew(min(_p, p).x, min(_p, p).y, max(_p, p).x, max(_p, p).y);
+		_m.setNew(_p, p);
 		System.out.println("x: " + _p.x + " y: " + _p.y);
 		System.out.println("x: " + p.x + " y: " + p.y);
 	}

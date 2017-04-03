@@ -1,5 +1,6 @@
 package code;
 
+import java.awt.Point;
 /**
  * The Model stores data by the actions from the controller and displayed in the UI
  */
@@ -123,9 +124,41 @@ public class Model {
 		}
 	}
 
-	public void setNew(int x, int y, int x1, int y1) {
-		_set.setCoordinateX(_set.getCoordinateX()[x][y], _set.getCoordinateX()[x1][y1]);
-		_set.setCoordinateY(_set.getCoordinateY()[x][y], _set.getCoordinateY()[x1][y1]);
+	public Point min(Point p, Point p1) {
+		Point rp = new Point();
+		if (p.x >= p1.x) {
+			rp.x = p1.x;
+		} else if (p.x < p1.x) {
+			rp.x = p.x;
+		}
+		if (p.y >= p1.y) {
+			rp.y = p1.y;
+		} else if (p.y < p1.y) {
+			rp.y = p.y;
+		}
+		return rp;
+	}
+
+	public Point max(Point p, Point p1) {
+		Point rp = new Point();
+		if (p.x <= p1.x) {
+			rp.x = p1.x;
+		} else if (p.x > p1.x) {
+			rp.x = p.x;
+		}
+		if (p.y <= p1.y) {
+			rp.y = p1.y;
+		} else if (p.y > p1.y) {
+			rp.y = p.y;
+		}
+		return rp;
+	}
+
+	public void setNew(Point p, Point p1) {
+		Point minP = min(p, p1);
+		Point maxP = max(p, p1);
+		_set.setCoordinateX(_set.getCoordinateX()[minP.x][minP.y], _set.getCoordinateX()[maxP.x][maxP.y]);
+		_set.setCoordinateY(_set.getCoordinateY()[minP.x][minP.y], _set.getCoordinateY()[maxP.x][maxP.y]);
 		setFractal(_set);
 	}
 
