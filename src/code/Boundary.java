@@ -48,7 +48,7 @@ public class Boundary {
 		if (rp.y > 511) {
 			rp.setLocation(rp.x, 511);
 		} else if (rp.y < 0) {
-			rp.setLocation(p.x, 0);
+			rp.setLocation(rp.x, 0);
 		}
 		return rp;
 	}
