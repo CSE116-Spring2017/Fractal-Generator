@@ -126,7 +126,7 @@ public class BurningShip implements Set {
 			JOptionPane.showMessageDialog(null,
 					"For burning ship escape time has to be greater than 1. The escape time has been reset to 255",
 					"Time Error", JOptionPane.ERROR_MESSAGE);
-			_maxEscTime = 256;
+			_maxEscTime = 255;
 		}
 		return passes;
 	}
