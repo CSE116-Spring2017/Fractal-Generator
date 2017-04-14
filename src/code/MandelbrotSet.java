@@ -24,6 +24,9 @@ public class MandelbrotSet implements Set {
 		reset();
 	}
 
+	/**
+	 * Reset the x range and y range
+	 */
 	@Override
 	public void reset() {
 		setCoordinateX(-2.15, 0.6);
@@ -36,6 +39,10 @@ public class MandelbrotSet implements Set {
 	 * the start of the x range which is -2.15 x + change of x when row increase
 	 * by one increase of column does not effect anything
 	 * 
+	 * @param double
+	 *            x1
+	 * @param double
+	 *            x2
 	 */
 	@Override
 	public void setCoordinateX(double x1, double x2) {
@@ -57,6 +64,10 @@ public class MandelbrotSet implements Set {
 	 * the start of the y range which is -1.3 y + change of y when column
 	 * increase by one increase of row does not effect anything
 	 * 
+	 * @param double
+	 *            y1
+	 * @param double
+	 *            y2
 	 */
 	@Override
 	public void setCoordinateY(double y1, double y2) {
@@ -72,11 +83,21 @@ public class MandelbrotSet implements Set {
 		_y = yy;
 	}
 
+	/**
+	 * return all of the x coordinate
+	 * 
+	 * @return 2-d array double
+	 */
 	@Override
 	public double[][] getCoordinateX() {
 		return _x;
 	}
 
+	/**
+	 * return all of the y coordinate
+	 * 
+	 * @return 2-d array double
+	 */
 	@Override
 	public double[][] getCoordinateY() {
 		return _y;
@@ -109,7 +130,6 @@ public class MandelbrotSet implements Set {
 		double yCalc = currenty;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
-
 		while (dist <= escapeDis && passes < maxEscTime) {
 			double xtemp = xCalc;
 			xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;

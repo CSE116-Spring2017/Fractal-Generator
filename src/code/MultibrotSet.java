@@ -25,6 +25,9 @@ public class MultibrotSet implements Set {
 		reset();
 	}
 
+	/**
+	 * Reset the x range and y range
+	 */
 	@Override
 	public void reset() {
 		setCoordinateX(-1.0, 1.0);
@@ -37,6 +40,10 @@ public class MultibrotSet implements Set {
 	 * the start of the x range which is -1 x + change of x when row increase by
 	 * one increase of column does not effect anything
 	 * 
+	 * @param double
+	 *            x1
+	 * @param double
+	 *            x2
 	 */
 	@Override
 	public void setCoordinateX(double x1, double x2) {
@@ -58,7 +65,10 @@ public class MultibrotSet implements Set {
 	 * the start of the y range which is -1.3 y + change of y when column
 	 * increase by one increase of row does not effect anything
 	 * 
-	 * @return 2-d array of double
+	 * @param double
+	 *            y1
+	 * @param double
+	 *            y2
 	 */
 	@Override
 	public void setCoordinateY(double y1, double y2) {
@@ -74,11 +84,21 @@ public class MultibrotSet implements Set {
 		_y = yy;
 	}
 
+	/**
+	 * return all of the x coordinate
+	 * 
+	 * @return 2-d array double
+	 */
 	@Override
 	public double[][] getCoordinateX() {
 		return _x;
 	}
 
+	/**
+	 * return all of the y coordinate
+	 * 
+	 * @return 2-d array double
+	 */
 	@Override
 	public double[][] getCoordinateY() {
 		return _y;
