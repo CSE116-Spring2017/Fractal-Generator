@@ -13,7 +13,9 @@ public class BurningShip implements Set {
 	private double[][] _x;
 	/** Array of all the y-coordinate */
 	private double[][] _y;
+	/** Escape Distance */
 	private int _escapeDis;
+	/** Maximum Escape Time */
 	private int _maxEscTime;
 
 	/**

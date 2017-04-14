@@ -59,7 +59,6 @@ public class Model {
 	 * 
 	 * @param set
 	 */
-
 	public void setFractal(Set set) {
 		_set = set;
 		_set.setEscapeDis(_escapeDistance);
