@@ -114,7 +114,6 @@ public class BurningShip implements Set {
 		int passes = 0;
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
-		if (maxEscTime > 1) {
 			while (dist <= escapeDis && passes < maxEscTime) {
 				double xtemp = xCalc;
 				xCalc = (xCalc * xCalc) - (yCalc * yCalc) + currentx;
@@ -122,12 +121,6 @@ public class BurningShip implements Set {
 				passes = passes + 1;
 				dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 			}
-		} else {
-			JOptionPane.showMessageDialog(null,
-					"For burning ship escape time has to be greater than 1. The escape time has been reset to 255",
-					"Time Error", JOptionPane.ERROR_MESSAGE);
-			_maxEscTime = 255;
-		}
 		return passes;
 	}
 
