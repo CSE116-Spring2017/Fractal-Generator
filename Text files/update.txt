@@ -11,3 +11,7 @@ Run the escape distance and check if they are valid or not.
    	(1) In the menu bar go to 'other' and select "max escape time".
 	(2) Escape distance dialog box pops up.
 	(3) The user must enter an integer value greater than 0 and less than 256.  An error message will occur if not.
+	
+	
+	
+	

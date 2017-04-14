@@ -6,4 +6,6 @@ Directions to reset the escape distance, escape time, and the zoom of the progra
 2)Then locate the option "RESET" and select it. This will reset the escape distance, escape time, and the zoom of the program.
 
 Have Fun :)
-
+    
+    
+     
