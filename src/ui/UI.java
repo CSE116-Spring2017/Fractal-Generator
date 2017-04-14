@@ -202,6 +202,7 @@ public class UI implements Runnable {
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_frame.pack();
 		_frame.setVisible(true);
+		_frame.setResizable(false);
 
 	}
 

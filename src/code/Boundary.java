@@ -72,9 +72,8 @@ public class Boundary {
 
 	public void setNew(Set s, Point p, Point p1) {
 		Point pp = new Point(checkBound(p1));
-		Point ppp = new Point(checkBound(p));
-		Point minP = min(ppp, pp);
-		Point maxP = max(ppp, pp);
+		Point minP = min(p, pp);
+		Point maxP = max(p, pp);
 		if(!minP.equals(maxP)) {
 		s.setCoordinateX(s.getCoordinateX()[minP.x][minP.y], s.getCoordinateX()[maxP.x][maxP.y]);
 		s.setCoordinateY(s.getCoordinateY()[minP.x][minP.y], s.getCoordinateY()[maxP.x][maxP.y]);
