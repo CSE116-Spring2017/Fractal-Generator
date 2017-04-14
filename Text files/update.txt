@@ -6,3 +6,8 @@ Run the escape distance and check if they are valid or not.
 		(3) The user enters an integer value greater than 0.
 		(4) Should the user enter anything other than an integer the exception is caught and
    			the user is notified with another warning message.
+   To update max escape time:
+   
+   	(1) In the menu bar go to 'other' and select "max escape time".
+	(2) Escape distance dialog box pops up.
+	(3) The user must enter an integer value greater than 0 and less than 256.  An error message will occur if not.

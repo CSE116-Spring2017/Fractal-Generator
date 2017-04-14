@@ -10,9 +10,14 @@ Directions to run the program:
 
 5) The fractal will update with the entered escape distance
 
-6) You can continue to change the color and the type of fractal while maintaining the escape distance you entered
+5) If you want to enter your own escape time, click on the "Other" menu tab and choose Max Escape Time
 
-7)To quit the program,choose File then Quit
+6) The fractal will update with the entered escape time
+
+
+7) You can continue to change the color and the type of fractal while maintaining the escape distance you entered and max escape time. 
+
+8)To quit the program,choose File then Quit
 
 Have Fun :)
 
