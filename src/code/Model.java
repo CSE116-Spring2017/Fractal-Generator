@@ -13,6 +13,7 @@ public class Model {
 	/** UI thats initialized by addObserver method */
 	private UI _ui;
 
+	/** Boundary use to check the range of zoom in */
 	private Boundary _b;
 
 	/** The escape time of the fractal that need to be display on UI */
@@ -113,7 +114,8 @@ public class Model {
 	}
 
 	/**
-	 * Returns true if _indexColorModel and _escapeTime are not null
+	 * Returns true if {@code _indexColorModel} and {@code _escapeTime} are not
+	 * null
 	 * 
 	 * @return true
 	 */
@@ -121,22 +123,62 @@ public class Model {
 		return getSelectColor() != null && getEscapeTime() != null;
 	}
 
+	/**
+	 * if the {@code _indexColorModel} and {@code _escapeTime} are selected by
+	 * the user (not null) then create new Rectangle whose upper-left corner is
+	 * at ({@code x}, {@code y}) in the coordinate space, with width {@code w}
+	 * and height {@code h}
+	 * 
+	 * @param x
+	 *            x coordinate of upper-left corner of the selected region
+	 * @param y
+	 *            y coordinate of upper-left corner of the selected region
+	 * @param w
+	 *            width of the selected region
+	 * @param h
+	 *            height of the selected region
+	 * 
+	 */
 	public void selectionBox(int x, int y, int w, int h) {
 		if (newFractal()) {
 			_ui.selectionBox(x, y, w, h);
 		}
 	}
 
+	/**
+	 * pass points {@code p} and {@code p1} to {@code _b} and check region
+	 * 
+	 * @param p
+	 *            Point when pressed
+	 * @param p1
+	 *            Point when dragged
+	 * 
+	 */
 	public void selection(Point p, Point p1) {
 		_b.selection(this, p, p1);
 	}
 
+	/**
+	 * use {@code selection(p, p1)} to check the region and
+	 * {@code set(_set, p, p1)} from _b to update the new x and y range
+	 * {@code setFractal(_set)} update and set up the new fractal
+	 * 
+	 * @param p
+	 *            Point when pressed
+	 * @param p1
+	 *            Point when released
+	 * 
+	 */
 	public void setNew(Point p, Point p1) {
 		selection(p, p1);
 		_b.setNew(_set, p, p1);
 		setFractal(_set);
 	}
 
+	/**
+	 * reset the all fractal set's x and y range to default and use
+	 * {@code setFractal(_set)} update and set up the new fractal
+	 */
 	public void reset() {
 		_set.reset();
 		setFractal(_set);
