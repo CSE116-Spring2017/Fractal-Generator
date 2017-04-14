@@ -78,33 +78,20 @@ public class Boundary {
 	}
 
 	/**
-	 * check the bound of the points {@code p} and {@code p1} first then assign
-	 * the new points to {@code pp} and {@code ppp} respectively, swap x -
-	 * coordinate if {@code pp.x} is greater than {@code ppp.x}, swap y -
-	 * coordinate if {@code pp.y} is greater than {@code ppp.y} so when pass the
-	 * region selected by user {@code pp} will be the coordinates of upper-left
-	 * corner of the region then calculate the width and height of the selected
-	 * region and call method {@code selectionBox()} in Model {@code m} to pass
-	 * the selected region
+	 * check the bound of the points {@code p} and {@code p1} then find the
+	 * minimum x - y - coordinate and maximum x - y - coordinate and assign the
+	 * new points to {@code pp} and {@code ppp} respectively, So {@code pp} will
+	 * be the coordinates of upper-left corner of the region then calculate the
+	 * width and height of the selected region and call method
+	 * {@code selectionBox()} in Model {@code m} to pass the selected region
 	 * 
 	 * @param m
 	 * @param p
 	 * @param p1
 	 */
 	public void selection(Model m, Point p, Point p1) {
-		Point pp = new Point(checkBound(p));
-		Point ppp = new Point(checkBound(p1));
-
-		if (pp.x > ppp.x) {
-			int x = ppp.x;
-			ppp.setLocation(pp.x, ppp.y);
-			pp.setLocation(x, pp.y);
-		}
-		if (pp.y > ppp.y) {
-			int y = ppp.y;
-			ppp.setLocation(ppp.x, pp.y);
-			pp.setLocation(pp.x, y);
-		}
+		Point pp = min(checkBound(p), checkBound(p1));
+		Point ppp = max(checkBound(p), checkBound(p1));
 		m.selectionBox(pp.x, pp.y, Math.abs(pp.x - ppp.x), Math.abs(pp.y - ppp.y));
 	}
 
@@ -119,10 +106,8 @@ public class Boundary {
 	 * @param p1
 	 */
 	public void setNew(Set s, Point p, Point p1) {
-		Point pp = new Point(checkBound(p));
-		Point ppp = new Point(checkBound(p1));
-		Point minP = min(pp, ppp);
-		Point maxP = max(pp, ppp);
+		Point minP = min(checkBound(p), checkBound(p1));
+		Point maxP = max(checkBound(p), checkBound(p1));
 		if (!minP.equals(maxP)) {
 			s.setCoordinateX(s.getCoordinateX()[minP.x][minP.y], s.getCoordinateX()[maxP.x][maxP.y]);
 			s.setCoordinateY(s.getCoordinateY()[minP.x][minP.y], s.getCoordinateY()[maxP.x][maxP.y]);
