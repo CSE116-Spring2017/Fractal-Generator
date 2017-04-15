@@ -279,6 +279,14 @@ public class UI implements Runnable {
 		_frame.add(_fractalPanel);
 	}
 
+	/**
+	 * The selectionBox Method is being run as long as the mouse is being dragged
+	 * It takes in the x and y coordinates that the user started to drag from and
+	 * it takes the x and y coordinates of where the mouse is being dragged too (w and h respectively).
+	 * Everytime the mouse is clicked and dragged it creates a new rectangle and it sets the bounds 
+	 * with the new coordinates.
+	 */
+	
 	public void selectionBox(int x, int y, int w, int h) {
 		_s = new Rectangle();
 		_s.setBounds(x, y, w, h);
