@@ -231,6 +231,19 @@ public class UI implements Runnable {
 		} catch (NullPointerException npe) {
 		}
 	}
+	
+	
+	
+	/* Convert String (@code input) to Integer When it throw
+	 * ({@code NumberFormatException}), Catch this exception and create a
+	 * MessageDialog to tell user it's not a valid input When it throw
+	 * ({@code NullPointerException}), Catch this exception and ignore it
+	 * because It still pass the new escape time to the model. Input must be between 0 and 256.
+	 * 
+	 * @param input
+	 */
+	
+	
 
 	public void checkInputTime(String input) {
 		int time;
