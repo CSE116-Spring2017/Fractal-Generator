@@ -13,6 +13,7 @@ import code.JuliaSet;
 import code.MandelbrotSet;
 import code.Model;
 import code.MultibrotSet;
+import edu.buffalo.fractal.ComputePool;
 import edu.buffalo.fractal.FractalPanel;
 
 public class UI implements Runnable {
@@ -24,9 +25,11 @@ public class UI implements Runnable {
 	private ArrayList<JLabel> _hint;
 	private JPanel _hints;
 	private Rectangle _s;
+	private ComputePool _cp;
 
 	public UI() {
 		_model = new Model();
+		_cp = new ComputePool();
 	}
 
 	@Override
@@ -146,7 +149,19 @@ public class UI implements Runnable {
 
 		});
 		other.add(escapeTime);
+		JMenuItem threads = new JMenuItem("Threads");
+		threads.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String s = JOptionPane.showInputDialog(_frame, "Enter number of threads: ");
+				if (s == null) {
+				} else {
+					checkThreadInput(s);
+				}
 
+			}
+		});
+		other.add(threads);
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ActionListener() {
 
@@ -262,6 +277,22 @@ public class UI implements Runnable {
 		} catch (NullPointerException npe) {
 		}
 	}
+	public void checkThreadInput(String s) {
+		try {
+			int i = Integer.parseInt(s);
+			if (i > 0 && i < 129) {
+				_model.setWorkers(i);
+			} else {
+				JOptionPane.showMessageDialog(_frame, "Invalid input", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (NumberFormatException nfe) {
+			JOptionPane.showMessageDialog(_frame, "Invalid input", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		} catch (NullPointerException n) {
+		}
+
+	}
 
 	/**
 	 * Remove the FractalPanel{@code _fractalPanel} from frame {@code _frame}
@@ -273,8 +304,9 @@ public class UI implements Runnable {
 	 */
 	@SuppressWarnings("serial")
 	public void newFractal() {
+		_cp.clearPool();
 		_frame.remove(_fractalPanel);
-		_fractalPanel = new FractalPanel() {
+		_fractalPanel = new FractalPanel(new Dimension(2048, 2048), _model.getSelectColor()) {
 			@Override
 			public void paint(Graphics g) {
 				super.paint(g);
@@ -287,8 +319,10 @@ public class UI implements Runnable {
 		MouseHandler m = new MouseHandler(_model);
 		_fractalPanel.addMouseListener(m);
 		_fractalPanel.addMouseMotionListener(m);
-		_fractalPanel.setIndexColorModel(_model.getSelectColor());
-		_fractalPanel.updateImage(_model.getEscapeTime());
+		_cp.changePanel(_fractalPanel);
+		_model.generateFractal(_cp);
+//		_fractalPanel.setIndexColorModel(_model.getSelectColor());
+//		_fractalPanel.updateImage(_model.getEscapeTime());
 		_frame.add(_fractalPanel);
 	}
 

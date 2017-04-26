@@ -6,6 +6,7 @@ import java.awt.Point;
  */
 import java.awt.image.IndexColorModel;
 
+import edu.buffalo.fractal.ComputePool;
 import ui.UI;
 
 public class Model {
@@ -15,6 +16,8 @@ public class Model {
 
 	/** Boundary use to check the range of zoom in */
 	private Boundary _b;
+	
+	private FractalThread _ft;
 
 	/** The escape time of the fractal that need to be display on UI */
 	private int[][] _escapeTime;
@@ -33,6 +36,7 @@ public class Model {
 
 	public Model() {
 		_b = new Boundary();
+		_ft = new FractalThread();
 		/** Set default escape Distance to 2 */
 		_escapeDistance = 2;
 		_maxEscTime = 255;
@@ -63,8 +67,12 @@ public class Model {
 		_set = set;
 		_set.setEscapeDis(_escapeDistance);
 		_set.setMaxEscapeTime(_maxEscTime);
-		_escapeTime = _set.getEscapeTime();
+//		_escapeTime = _set.getEscapeTime();
 		_ui.update();
+	}
+	
+	public Set getSet() {
+		return _set;
 	}
 
 	/**
@@ -119,7 +127,7 @@ public class Model {
 	 * @return true
 	 */
 	public boolean newFractal() {
-		return getSelectColor() != null && getEscapeTime() != null;
+		return getSelectColor() != null && getSet() != null;
 	}
 
 	/**
@@ -171,7 +179,18 @@ public class Model {
 	public void setNew(Point p, Point p1) {
 		selection(p, p1);
 		_b.setNew(_set, p, p1);
+		if(!p.equals(p1)) {
+			setFractal(_set);
+		}
+	}
+	
+	public void setWorkers(int i) {
+		_ft.setWorkers(i);
 		setFractal(_set);
+	}
+	
+	public void generateFractal(ComputePool cp) {
+		_ft.generateFractal(cp, _set);
 	}
 
 	/**

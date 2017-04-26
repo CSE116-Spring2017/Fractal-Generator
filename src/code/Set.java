@@ -20,6 +20,8 @@ public interface Set {
 
 	public int escapeTime(int maxEscTime, int escapeDis, double currentx, double currenty);
 
+	public int[][] getEscapeTime(int start, int r);
+	
 	public int[][] getEscapeTime();
 
 	public void setEscapeDis(int escapeDis);
