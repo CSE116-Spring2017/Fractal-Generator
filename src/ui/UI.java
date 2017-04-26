@@ -246,19 +246,17 @@ public class UI implements Runnable {
 		} catch (NullPointerException npe) {
 		}
 	}
-	
-	
-	
-	/* Convert String (@code input) to Integer When it throw
-	 * ({@code NumberFormatException}), Catch this exception and create a
-	 * MessageDialog to tell user it's not a valid input When it throw
-	 * ({@code NullPointerException}), Catch this exception and ignore it
-	 * because It still pass the new escape time to the model. Input must be between 0 and 256.
+
+	/*
+	 * Convert String (@code input) to Integer When it throw ({@code
+	 * NumberFormatException}), Catch this exception and create a MessageDialog
+	 * to tell user it's not a valid input When it throw ({@code
+	 * NullPointerException}), Catch this exception and ignore it because It
+	 * still pass the new escape time to the model. Input must be between 0 and
+	 * 256.
 	 * 
 	 * @param input
 	 */
-	
-	
 
 	public void checkInputTime(String input) {
 		int time;
@@ -277,17 +275,20 @@ public class UI implements Runnable {
 		} catch (NullPointerException npe) {
 		}
 	}
+
 	public void checkThreadInput(String s) {
 		try {
 			int i = Integer.parseInt(s);
 			if (i > 0 && i < 129) {
 				_model.setWorkers(i);
 			} else {
-				JOptionPane.showMessageDialog(_frame, "Invalid input", "Error",
+				JOptionPane.showMessageDialog(_frame,
+						"Invalid input, please enter an integer greater than 0 and less than 129", "Error",
 						JOptionPane.ERROR_MESSAGE);
 			}
 		} catch (NumberFormatException nfe) {
-			JOptionPane.showMessageDialog(_frame, "Invalid input", "Error",
+			JOptionPane.showMessageDialog(_frame,
+					"Invalid input, please enter an integer greater than 0 and less than 129", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		} catch (NullPointerException n) {
 		}
@@ -321,19 +322,20 @@ public class UI implements Runnable {
 		_fractalPanel.addMouseMotionListener(m);
 		_cp.changePanel(_fractalPanel);
 		_model.generateFractal(_cp);
-//		_fractalPanel.setIndexColorModel(_model.getSelectColor());
-//		_fractalPanel.updateImage(_model.getEscapeTime());
+		// _fractalPanel.setIndexColorModel(_model.getSelectColor());
+		// _fractalPanel.updateImage(_model.getEscapeTime());
 		_frame.add(_fractalPanel);
 	}
 
 	/**
-	 * The selectionBox Method is being run as long as the mouse is being dragged
-	 * It takes in the x and y coordinates that the user started to drag from and
-	 * it takes the x and y coordinates of where the mouse is being dragged too (w and h respectively).
-	 * Everytime the mouse is clicked and dragged it creates a new rectangle and it sets the bounds 
-	 * with the new coordinates.
+	 * The selectionBox Method is being run as long as the mouse is being
+	 * dragged It takes in the x and y coordinates that the user started to drag
+	 * from and it takes the x and y coordinates of where the mouse is being
+	 * dragged too (w and h respectively). Everytime the mouse is clicked and
+	 * dragged it creates a new rectangle and it sets the bounds with the new
+	 * coordinates.
 	 */
-	
+
 	public void selectionBox(int x, int y, int w, int h) {
 		_s = new Rectangle();
 		_s.setBounds(x, y, w, h);
