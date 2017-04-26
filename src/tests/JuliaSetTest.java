@@ -18,8 +18,7 @@ public class JuliaSetTest {
 		js.setCoordinateX(-1.7, 1.7);
 		double[][] x = js.getCoordinateX();
 		assertEquals(-1.7, x[0][0], 0.0001);
-		assertEquals(-1.69334638, x[1][0], 0.0001);
-		assertEquals(1.7, x[511][0], 0.0001);
+		assertEquals(1.7, x[2047][0], 0.0001);
 	}
 
 	/**
@@ -32,8 +31,7 @@ public class JuliaSetTest {
 		js.setCoordinateY(-1.0, 1.0);
 		double[][] y = js.getCoordinateY();
 		assertEquals(-1.0, y[0][0], 0.0001);
-		assertEquals(-0.99608611, y[0][1], 0.0001);
-		assertEquals(1.0, y[0][511], 0.0001);
+		assertEquals(1.0, y[0][2047], 0.0001);
 
 	}
 
@@ -91,8 +89,8 @@ public class JuliaSetTest {
 		js.setEscapeDis(2);
 		js.setMaxEscapeTime(255);
 		int[][] result = js.getEscapeTime();
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
+		assertEquals(2048, result.length);
+		assertEquals(2048, result[0].length);
 	}
 
 }

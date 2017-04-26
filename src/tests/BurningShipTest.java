@@ -18,8 +18,7 @@ public class BurningShipTest {
 		ship.setCoordinateX(-1.8, -1.7);
 		double[][] x = ship.getCoordinateX();
 		assertEquals(-1.8, x[0][0], 0.0001);
-		assertEquals(-1.79980431, x[1][0], 0.0001);
-		assertEquals(-1.7, x[511][0], 0.0001);
+		assertEquals(-1.7, x[2047][0], 0.0001);
 	}
 
 	/**
@@ -33,8 +32,7 @@ public class BurningShipTest {
 		ship.setCoordinateY(-0.08, 0.025);
 		double[][] y = ship.getCoordinateY();
 		assertEquals(-0.08, y[0][0], 0.0001);
-		assertEquals(-0.07979452, y[0][1], 0.0001);
-		assertEquals(0.025, y[0][511], 0.0001);
+		assertEquals(0.025, y[0][2047], 0.0001);
 	}
 
 	/**
@@ -98,8 +96,8 @@ public class BurningShipTest {
 		ship.setEscapeDis(2);
 		ship.setMaxEscapeTime(255);
 		int[][] result = ship.getEscapeTime();
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
+		assertEquals(2048, result.length);
+		assertEquals(2048, result[0].length);
 
 	}
 

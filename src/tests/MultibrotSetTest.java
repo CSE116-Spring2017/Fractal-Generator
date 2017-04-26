@@ -18,8 +18,7 @@ public class MultibrotSetTest {
 		mb.setCoordinateX(-1.0, 1.0);
 		double[][] x = mb.getCoordinateX();
 		assertEquals(-1.0, x[0][0], 0.0001);
-		assertEquals(-0.99608611, x[1][0], 0.0001);
-		assertEquals(1.0, x[511][0], 0.0001);
+		assertEquals(1.0, x[2047][0], 0.0001);
 	}
 
 	/**
@@ -32,8 +31,7 @@ public class MultibrotSetTest {
 		mb.setCoordinateY(-1.3, 1.3);
 		double[][] y = mb.getCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.0001);
-		assertEquals(-1.29491194, y[0][1], 0.0001);
-		assertEquals(1.3, y[0][511], 0.0001);
+		assertEquals(1.3, y[0][2047], 0.0001);
 	}
 
 	/**
@@ -91,8 +89,8 @@ public class MultibrotSetTest {
 		mb.setEscapeDis(2);
 		mb.setMaxEscapeTime(255);
 		int[][] result = mb.getEscapeTime();
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
+		assertEquals(2048, result.length);
+		assertEquals(2048, result[0].length);
 	}
 
 }

@@ -18,8 +18,7 @@ public class MandelbrotSetTest {
 		m.setCoordinateX(-2.15, 0.6);
 		double[][] x = m.getCoordinateX();
 		assertEquals(-2.15, x[0][0], 0.0001);
-		assertEquals(-2.1446184, x[1][0], 0.0001);
-		assertEquals(0.6, x[511][0], 0.0001);
+		assertEquals(0.6, x[2047][0], 0.0001);
 
 	}
 
@@ -33,8 +32,7 @@ public class MandelbrotSetTest {
 		m.setCoordinateY(-1.3, 1.3);
 		double[][] y = m.getCoordinateY();
 		assertEquals(-1.3, y[0][0], 0.0001);
-		assertEquals(-1.29491194, y[0][1], 0.0001);
-		assertEquals(1.3, y[0][511], 0.0001);
+		assertEquals(1.3, y[0][2047], 0.0001);
 
 	}
 
@@ -93,8 +91,8 @@ public class MandelbrotSetTest {
 		m.setEscapeDis(2);
 		m.setMaxEscapeTime(255);
 		int[][] result = m.getEscapeTime();
-		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
+		assertEquals(2048, result.length);
+		assertEquals(2048, result[0].length);
 	}
 
 }
