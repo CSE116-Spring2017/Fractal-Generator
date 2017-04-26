@@ -65,12 +65,12 @@ public class Boundary {
 	public Point checkBound(Point p) {
 		Point rp = new Point(p);
 		if (rp.x > 2047) {
-			rp.setLocation(511, rp.y);
+			rp.setLocation(2047, rp.y);
 		} else if (rp.x < 0) {
 			rp.setLocation(0, rp.y);
 		}
 		if (rp.y > 2047) {
-			rp.setLocation(rp.x, 511);
+			rp.setLocation(rp.x, 2047);
 		} else if (rp.y < 0) {
 			rp.setLocation(rp.x, 0);
 		}
