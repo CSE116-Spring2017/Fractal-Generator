@@ -2,9 +2,13 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import javax.swing.SwingWorker;
+
 import org.junit.Test;
 
+import code.FractalThread;
 import code.MandelbrotSet;
+import edu.buffalo.fractal.WorkerResult;
 
 public class MandelbrotSetTest {
 
@@ -90,6 +94,15 @@ public class MandelbrotSetTest {
 		MandelbrotSet m = new MandelbrotSet();
 		m.setEscapeDis(2);
 		m.setMaxEscapeTime(255);
+		FractalThread f = new FractalThread();
+		f.setWorkers(4);
+		SwingWorker<WorkerResult, Void>[] sw = f.getWorkers(m);
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			w.execute();
+		}
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			while(!w.isDone()) {}
+		}
 		int[][] result = m.getEscapeTime();
 		assertEquals(2048, result.length);
 		assertEquals(2048, result[0].length);

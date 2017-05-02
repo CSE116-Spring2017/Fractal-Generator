@@ -2,9 +2,13 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import javax.swing.SwingWorker;
+
 import org.junit.Test;
 
+import code.FractalThread;
 import code.JuliaSet;
+import edu.buffalo.fractal.WorkerResult;
 
 public class JuliaSetTest {
 
@@ -88,6 +92,15 @@ public class JuliaSetTest {
 		JuliaSet js = new JuliaSet();
 		js.setEscapeDis(2);
 		js.setMaxEscapeTime(255);
+		FractalThread f = new FractalThread();
+		f.setWorkers(4);
+		SwingWorker<WorkerResult, Void>[] sw = f.getWorkers(js);
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			w.execute();
+		}
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			while(!w.isDone()) {}
+		}
 		int[][] result = js.getEscapeTime();
 		assertEquals(2048, result.length);
 		assertEquals(2048, result[0].length);

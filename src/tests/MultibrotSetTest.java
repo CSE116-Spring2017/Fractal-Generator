@@ -2,9 +2,13 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import javax.swing.SwingWorker;
+
 import org.junit.Test;
 
+import code.FractalThread;
 import code.MultibrotSet;
+import edu.buffalo.fractal.WorkerResult;
 
 public class MultibrotSetTest {
 
@@ -88,6 +92,15 @@ public class MultibrotSetTest {
 		MultibrotSet mb = new MultibrotSet();
 		mb.setEscapeDis(2);
 		mb.setMaxEscapeTime(255);
+		FractalThread f = new FractalThread();
+		f.setWorkers(4);
+		SwingWorker<WorkerResult, Void>[] sw = f.getWorkers(mb);
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			w.execute();
+		}
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			while(!w.isDone()) {}
+		}
 		int[][] result = mb.getEscapeTime();
 		assertEquals(2048, result.length);
 		assertEquals(2048, result[0].length);

@@ -17,6 +17,7 @@ public class BurningShip implements Set {
 	private int _escapeDis;
 	/** Maximum Escape Time */
 	private int _maxEscTime;
+	private int[][] _escapeTime;
 
 	/**
 	 * Create a Burning Ship Set with array of x coordinate range from -1.8 to
@@ -26,6 +27,7 @@ public class BurningShip implements Set {
 	 */
 	public BurningShip() {
 		reset();
+		_escapeTime = new int[2048][2048];
 	}
 
 	/**
@@ -173,7 +175,7 @@ public class BurningShip implements Set {
 		for (int row = 0; row < r; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
 				result[row][col] = escapeTime(_maxEscTime, _escapeDis, _x[start+row][col], _y[start+row][col]);
-
+				_escapeTime[row+start][col] = result[row][col];		
 			}
 		}
 		return result;
@@ -181,6 +183,6 @@ public class BurningShip implements Set {
 	
 	@Override
 	public int[][] getEscapeTime() {
-		return getEscapeTime(0, 2048);
+		return _escapeTime;
 	}
 }

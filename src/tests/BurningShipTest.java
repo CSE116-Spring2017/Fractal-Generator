@@ -2,9 +2,15 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import javax.swing.SwingWorker;
+
 import org.junit.Test;
 
 import code.BurningShip;
+import code.FractalThread;
+import edu.buffalo.fractal.ComputePool;
+import edu.buffalo.fractal.FractalPanel;
+import edu.buffalo.fractal.WorkerResult;
 
 public class BurningShipTest {
 
@@ -66,6 +72,15 @@ public class BurningShipTest {
 		BurningShip ship = new BurningShip();
 		ship.setEscapeDis(2);
 		ship.setMaxEscapeTime(255);
+		FractalThread f = new FractalThread();
+		f.setWorkers(4);
+		SwingWorker<WorkerResult, Void>[] sw = f.getWorkers(ship);
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			w.execute();
+		}
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			while(!w.isDone()) {}
+		}
 		int[][] result = ship.getEscapeTime();
 		for (int row = 0; row < result.length; row = row + 1) {
 			for (int col = 0; col < result[row].length; col = col + 1) {
@@ -95,6 +110,15 @@ public class BurningShipTest {
 		BurningShip ship = new BurningShip();
 		ship.setEscapeDis(2);
 		ship.setMaxEscapeTime(255);
+		FractalThread f = new FractalThread();
+		f.setWorkers(4);
+		SwingWorker<WorkerResult, Void>[] sw = f.getWorkers(ship);
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			w.execute();
+		}
+		for(SwingWorker<WorkerResult, Void> w: sw) {
+			while(!w.isDone()) {}
+		}
 		int[][] result = ship.getEscapeTime();
 		assertEquals(2048, result.length);
 		assertEquals(2048, result[0].length);

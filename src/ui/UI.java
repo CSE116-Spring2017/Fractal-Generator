@@ -317,6 +317,7 @@ public class UI implements Runnable {
 				}
 			}
 		};
+//		_fractalPanel.setPreferredSize(new Dimension(800,800));
 		MouseHandler m = new MouseHandler(_model);
 		_fractalPanel.addMouseListener(m);
 		_fractalPanel.addMouseMotionListener(m);
