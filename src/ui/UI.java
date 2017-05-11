@@ -276,6 +276,15 @@ public class UI implements Runnable {
 		}
 	}
 
+	/*
+	 * Checks to see if the value inputed is between 0 and 129
+	 * If it is not between those values it will spit out an error message
+	 * If it is between the values then it will continue with the operation
+	 * It also ONLY accepts integer values. It will not taker any other values
+	 * 
+	 * @param input
+	 */
+	
 	public void checkThreadInput(String s) {
 		try {
 			int i = Integer.parseInt(s);
