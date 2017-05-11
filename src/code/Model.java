@@ -183,12 +183,25 @@ public class Model {
 			setFractal(_set);
 		}
 	}
+	/*
+	 * sets the worker class
+	 * 
+	 * @param int i
+	 */
+	
 	
 	public void setWorkers(int i) {
 		_ft.setWorkers(i);
 		setFractal(_set);
 	}
 	
+	
+	/*
+	 * Generates the fractal panel
+	 * 
+	 * @param ComputePool cp
+	 * 
+	 */
 	public void generateFractal(ComputePool cp) {
 		_ft.generateFractal(cp, _set);
 	}

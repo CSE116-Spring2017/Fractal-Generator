@@ -180,9 +180,13 @@ public class BurningShip implements Set {
 		}
 		return result;
 	}
-	
+
+/*
+ *	(non-Javadoc)
+ * @see code.Set#getEscapeTime()
+ */
 	@Override
-	public int[][] getEscapeTime() {
+		public int[][] getEscapeTime() {
 		return _escapeTime;
 	}
 }
