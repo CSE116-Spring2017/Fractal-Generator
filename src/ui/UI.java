@@ -247,7 +247,7 @@ public class UI implements Runnable {
 		}
 	}
 
-	/*
+	/**
 	 * Convert String (@code input) to Integer When it throw ({@code
 	 * NumberFormatException}), Catch this exception and create a MessageDialog
 	 * to tell user it's not a valid input When it throw ({@code
@@ -276,7 +276,7 @@ public class UI implements Runnable {
 		}
 	}
 
-	/*
+	/**
 	 * Checks to see if the value inputed is between 0 and 129
 	 * If it is not between those values it will spit out an error message
 	 * If it is between the values then it will continue with the operation
