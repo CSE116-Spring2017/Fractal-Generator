@@ -8,8 +8,6 @@ import org.junit.Test;
 
 import code.BurningShip;
 import code.FractalThread;
-import edu.buffalo.fractal.ComputePool;
-import edu.buffalo.fractal.FractalPanel;
 import edu.buffalo.fractal.WorkerResult;
 
 public class BurningShipTest {

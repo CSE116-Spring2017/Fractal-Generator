@@ -7,7 +7,7 @@ import edu.buffalo.fractal.WorkerResult;
 
 public class FractalThread {
 
-	/*
+	/**
 	 *  accepts the # of threads and divides it appropriately into the of processors in the PC
 	 */
 	private int _w;
@@ -17,14 +17,14 @@ public class FractalThread {
 	}
 
 	
-	/*
+	/**
 	 * reset method to change _2
 	 */
 	public void reset() {
 		_w = 1;
 	}
 
-	/*
+	/**
 	 * setter method that sets it to the instance variable
 	 * 
 	 *  @param int i
@@ -32,13 +32,13 @@ public class FractalThread {
 	public void setWorkers(int i) {
 		_w = i;
 	}
-/*
- * Performs the multi-threading
- * 
+	/**
+	 * Performs the multi-threading
+	 * 
 	 * @param Set s
 	 * @return sw SwingWorker<WorkerResult, Void>[]
- * 
- */
+	 * 
+	 */
 	public SwingWorker<WorkerResult, Void>[] getWorkers(Set s) {
 		SwingWorker<WorkerResult, Void>[] sw = new Worker[_w];
 		int split = 2048 / _w;
@@ -56,7 +56,7 @@ public class FractalThread {
 	}
 
 	
-	/*
+	/**
 	 *	Generates a 2048 fractal
 	 * @param ComputePool cp
 	 * @parm Set s
