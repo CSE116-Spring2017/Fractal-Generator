@@ -4,6 +4,7 @@ import javax.swing.SwingWorker;
 
 import edu.buffalo.fractal.WorkerResult;
 
+
 public class Worker extends SwingWorker<WorkerResult, Void>{
 	
 	private int _s;
@@ -16,6 +17,12 @@ public class Worker extends SwingWorker<WorkerResult, Void>{
 		_set = set;
 	}
 
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * @see javax.swing.SwingWorker#doInBackground()
+	 */
 	@Override
 	protected WorkerResult doInBackground() throws Exception {
 		return new WorkerResult(_s, _set.getEscapeTime(_s, _r));
