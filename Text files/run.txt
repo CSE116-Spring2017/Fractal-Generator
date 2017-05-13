@@ -16,6 +16,8 @@ Directions to run the program:
 
 7) You can continue to change the color and the type of fractal while maintaining the escape distance you entered and max escape time. 
 
+8) Click on the "Other" menu and choose the "Threads" to change the threading
+
 8)To quit the program,choose File then Quit
 
 Have Fun :)

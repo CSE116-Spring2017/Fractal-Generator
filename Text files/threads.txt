@@ -1,0 +1,13 @@
+Directions to change the threads
+
+
+1)In order to # of threads the program you must go under the "Other" in the menu tab.
+
+2)Then locate the option "Threads" and select it.
+
+3) Enter the right int value 
+
+Have Fun :)
+    
+    
+     
