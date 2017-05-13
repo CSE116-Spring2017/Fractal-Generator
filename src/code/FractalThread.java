@@ -21,7 +21,7 @@ public class FractalThread {
 	 * reset method to change _2
 	 */
 	public void reset() {
-		_w = 1;
+		_w = 4;
 	}
 
 	/**
