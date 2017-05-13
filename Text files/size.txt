@@ -5,3 +5,4 @@ Check and verify the code:
 2) In each fractal set class in line 54 and 79, we calculate x - y coordinate in order to use it to calculate the escape time
 
 3) In FractalThread.java line 66, we call generateFractal with 2048 row on computePool
+
