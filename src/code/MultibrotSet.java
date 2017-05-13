@@ -24,6 +24,7 @@ public class MultibrotSet implements Set {
 	 * 2048 equally-spaced array of y coordinate range from -1.3 to 1.3 with 2048
 	 * equally-spaced array of escape-time for each of 262144 pairs
 	 */
+	
 	public MultibrotSet() {
 		reset();
 		_escapeTime = new int[2048][2048];
@@ -181,7 +182,12 @@ public class MultibrotSet implements Set {
 		}
 		return result;
 	}
-
+	
+	/**
+	 * 
+	 * (non-Javadoc)
+	 * @see code.Set#getEscapeTime()
+	 */
 	@Override
 	public int[][] getEscapeTime() {
 		return _escapeTime;

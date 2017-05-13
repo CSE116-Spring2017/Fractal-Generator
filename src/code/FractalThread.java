@@ -18,7 +18,7 @@ public class FractalThread {
 
 	
 	/**
-	 * reset method to change _2
+	 * reset method to have 4 worker to calculate the escape time
 	 */
 	public void reset() {
 		_w = 4;
@@ -34,7 +34,8 @@ public class FractalThread {
 	}
 	/**
 	 * Performs the multi-threading
-	 * 
+	 * split rows 2048 with number of worker{@code _w}
+	 * give each worker it's starting row and number of rows and which fractal set it need to calculate
 	 * @param Set s
 	 * @return sw SwingWorker<WorkerResult, Void>[]
 	 * 

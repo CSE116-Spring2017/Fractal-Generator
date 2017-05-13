@@ -185,7 +185,7 @@ public class JuliaSet implements Set {
 		return result;
 	}
 
-	/*
+	/**
 	 * 
 	 * (non-Javadoc)
 	 * @see code.Set#getEscapeTime()

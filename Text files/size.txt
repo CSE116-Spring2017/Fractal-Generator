@@ -1,2 +1,7 @@
+Check and verify the code:
 
-We use the Worker class and the Fractal Thread class to make sure the program generate a 2048x2048 fractal
+1) In UI.java line 319, we set the Dimension of the fractal panel into 2048 x 2048
+
+2) In each fractal set class in line 54 and 79, we calculate x - y coordinate in order to use it to calculate the escape time
+
+3) In FractalThread.java line 66, we call generateFractal with 2048 row on computePool
